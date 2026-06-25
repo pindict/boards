@@ -1,0 +1,36 @@
+schema_version: 1
+id: arduino-bme280-basic
+title: BME280 で温度・湿度・気圧を読む (Arduino)
+language: arduino-cpp
+summary: Adafruit BME280 ライブラリで I2C 読み出しの最小例
+boards: [arduino-uno-r3, esp32-devkitc-v4]
+sensors: [bme280]
+tags: [i2c, sensor, recipe]
+parts:
+  - { name: BME280 モジュール, qty: 1 }
+  - { name: ジャンパワイヤ (オス-メス), qty: 4 }
+body: |
+  // 依存: Adafruit BME280 Library, Adafruit Unified Sensor
+  #include <Wire.h>
+  #include <Adafruit_BME280.h>
+
+  Adafruit_BME280 bme;
+
+  void setup() {
+    Serial.begin(115200);
+    if (!bme.begin(0x76)) {        // 0x77 のモジュールもある
+      Serial.println("BME280 not found");
+      while (1) delay(100);
+    }
+  }
+
+  void loop() {
+    Serial.print("T = "); Serial.print(bme.readTemperature()); Serial.println(" C");
+    Serial.print("H = "); Serial.print(bme.readHumidity());    Serial.println(" %");
+    Serial.print("P = "); Serial.print(bme.readPressure()/100.0); Serial.println(" hPa");
+    Serial.println();
+    delay(2000);
+  }
+explanation: |
+  I2C アドレスは 0x76 が既定。SDO ピンを VCC に上げると 0x77 になる。
+  ESP32 で SDA/SCL を変えたい場合は setup() 内で `Wire.begin(21, 22);` を先に呼ぶ。

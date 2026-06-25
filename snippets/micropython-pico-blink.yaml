@@ -1,0 +1,20 @@
+schema_version: 1
+id: micropython-pico-blink
+title: LED 点滅 (Pico, MicroPython)
+language: micropython
+summary: Pico オンボード LED (GP25) を 1 秒間隔で点滅
+boards: [raspberry-pi-pico, raspberry-pi-pico-w]
+tags: [basic, gpio, must-have]
+body: |
+  from machine import Pin
+  import time
+
+  # Pico は GP25 がオンボード LED、Pico W は "LED" シンボリック名で
+  led = Pin("LED", Pin.OUT)
+
+  while True:
+      led.toggle()
+      time.sleep(1)
+explanation: |
+  Pico W では LED は CYW43 (WiFi チップ) 経由で制御されるため
+  `Pin("LED")` のシンボリック名を使う (GP25 への直接アクセスは不可)。

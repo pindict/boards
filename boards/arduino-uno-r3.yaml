@@ -1,0 +1,101 @@
+schema_version: 1
+id: arduino-uno-r3
+name: Arduino Uno R3
+aliases: [Uno R3, ATmega328P Board]
+manufacturer: Arduino
+family: arduino
+mcu:
+  chip: ATmega328P
+  core: AVR 8-bit
+  clock_mhz: 16
+  flash_kb: 32
+  sram_kb: 2
+voltage:
+  logic: 5.0
+  input_min: 7.0
+  input_max: 12.0
+pinout:
+  svg: assets/boards/arduino-uno-r3.svg
+  viewbox: { w: 680, h: 400 }
+tags: [popular, beginner, 5v]
+notes: |
+  5Vロジック。3.3V センサ接続にはレベルシフタを検討。
+  D0/D1 は USB シリアル兼用。スケッチ書き込み中は外す。
+pins:
+  # ── Top digital header (D0-D13 + GND/AREF/SDA/SCL) ─────────────────
+  - { index: 1,  label: "D0/RX",   gpio: 0,  x: 100, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx"}], warnings: ["USB serial と共有"] }
+  - { index: 2,  label: "D1/TX",   gpio: 1,  x: 130, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx"}], warnings: ["USB serial と共有"] }
+  - { index: 3,  label: "D2",      gpio: 2,  x: 160, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 4,  label: "D3",      gpio: 3,  x: 190, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "OC2B"}] }
+  - { index: 5,  label: "D4",      gpio: 4,  x: 220, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 6,  label: "D5",      gpio: 5,  x: 250, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "OC0B"}] }
+  - { index: 7,  label: "D6",      gpio: 6,  x: 280, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "OC0A"}] }
+  - { index: 8,  label: "D7",      gpio: 7,  x: 310, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 9,  label: "D8",      gpio: 8,  x: 340, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 10, label: "D9",      gpio: 9,  x: 370, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "OC1A"}] }
+  - { index: 11, label: "D10/SS",  gpio: 10, x: 400, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "OC1B"}, {type: "spi-cs"}] }
+  - { index: 12, label: "D11/MOSI",gpio: 11, x: 430, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "OC2A"}, {type: "spi-mosi"}] }
+  - { index: 13, label: "D12/MISO",gpio: 12, x: 460, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: "spi-miso"}] }
+  - { index: 14, label: "D13/SCK", gpio: 13, x: 490, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: "spi-sck"}], notes: "LED 内蔵" }
+  - { index: 15, label: "GND",     gpio: null, x: 520, y: 50, side: top, kind: ground }
+  - { index: 16, label: "AREF",    gpio: null, x: 550, y: 50, side: top, kind: analog,
+      functions: [{type: gpio, note: "ADC reference"}] }
+  - { index: 17, label: "SDA",     gpio: 18, x: 580, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-sda"}], notes: "A4 と同一" }
+  - { index: 18, label: "SCL",     gpio: 19, x: 610, y: 50, side: top, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-scl"}], notes: "A5 と同一" }
+  # ── Bottom analog header (A0-A5) ───────────────────────────────────
+  - { index: 19, label: "A0",      gpio: 14, x: 100, y: 350, side: bottom, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC0"}] }
+  - { index: 20, label: "A1",      gpio: 15, x: 130, y: 350, side: bottom, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1"}] }
+  - { index: 21, label: "A2",      gpio: 16, x: 160, y: 350, side: bottom, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2"}] }
+  - { index: 22, label: "A3",      gpio: 17, x: 190, y: 350, side: bottom, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC3"}] }
+  - { index: 23, label: "A4/SDA",  gpio: 18, x: 220, y: 350, side: bottom, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC4"}, {type: "i2c-sda"}] }
+  - { index: 24, label: "A5/SCL",  gpio: 19, x: 250, y: 350, side: bottom, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC5"}, {type: "i2c-scl"}] }
+  # ── Bottom power header (IOREF/RESET/3V3/5V/GND/GND/VIN) ───────────
+  - { index: 25, label: "IOREF",   gpio: null, x: 310, y: 350, side: bottom, kind: power,
+      notes: "ロジック電圧の参照" }
+  - { index: 26, label: "RESET",   gpio: null, x: 340, y: 350, side: bottom, kind: reset,
+      warnings: ["LOWでリセット"] }
+  - { index: 27, label: "3V3",     gpio: null, x: 370, y: 350, side: bottom, kind: power,
+      notes: "max 50mA" }
+  - { index: 28, label: "5V",      gpio: null, x: 400, y: 350, side: bottom, kind: power }
+  - { index: 29, label: "GND",     gpio: null, x: 430, y: 350, side: bottom, kind: ground }
+  - { index: 30, label: "GND",     gpio: null, x: 460, y: 350, side: bottom, kind: ground }
+  - { index: 31, label: "VIN",     gpio: null, x: 490, y: 350, side: bottom, kind: power,
+      notes: "外部電源 7-12V" }
+datasheets:
+  - title: ATmega328P Datasheet
+    url: https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf
+    bundled: false
+    language: en
+references:
+  - title: Arduino UNO R3 (公式 hardware)
+    url: https://docs.arduino.cc/hardware/uno-rev3
+    language: en
+  - title: Arduino Language Reference
+    url: https://docs.arduino.cc/language-reference/
+    language: en
+snippets:
+  - arduino-blink
+  - arduino-i2c-scan
+  - arduino-serial-echo

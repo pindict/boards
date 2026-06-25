@@ -1,0 +1,23 @@
+schema_version: 1
+id: linux-pinout
+title: pinout / GPIO 状態確認 (Raspberry Pi OS)
+language: shell
+summary: コマンドラインから現在の GPIO 配線と機能を確認する
+boards: [raspberry-pi-4b, raspberry-pi-zero-2-w]
+tags: [raspberry-pi, linux, must-have]
+body: |
+  # 物理ピン番号と機能を ASCII で表示
+  pinout
+
+  # 各 GPIO の現在の方向・レベル・プル設定 (raspi-gpio パッケージ)
+  raspi-gpio get
+
+  # 単一ピンの状態
+  raspi-gpio get 17
+
+  # I2C / SPI / UART の有効化 (再起動必要)
+  sudo raspi-config nonint do_i2c 0
+  sudo raspi-config nonint do_spi 0
+explanation: |
+  `pinout` は python3-gpiozero に同梱。`raspi-gpio` は `sudo apt install raspi-gpio`。
+  Pi 5 では従来の sysfs (/sys/class/gpio) は非推奨、`gpioget`/`gpioset` (libgpiod) を使う。

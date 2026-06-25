@@ -1,0 +1,28 @@
+schema_version: 1
+id: arduino-pwm-fade
+title: LED PWM フェード
+language: arduino-cpp
+summary: analogWrite() で LED を滑らかに明滅させる
+boards: [arduino-uno-r3, arduino-nano]
+tags: [pwm, led, basic]
+body: |
+  const int LED = 9;  // PWM ピン (~)
+
+  void setup() {
+    pinMode(LED, OUTPUT);
+  }
+
+  void loop() {
+    for (int b = 0; b <= 255; b += 5) {
+      analogWrite(LED, b);
+      delay(20);
+    }
+    for (int b = 255; b >= 0; b -= 5) {
+      analogWrite(LED, b);
+      delay(20);
+    }
+  }
+explanation: |
+  UNO の PWM ピン: 3, 5, 6, 9, 10, 11 (`~` 記号付き)。
+  人間の目には PWM のデューティが線形に見えないので、
+  ガンマ補正 (`pow(b/255.0, 2.2)`) を入れると自然な明るさカーブになる。

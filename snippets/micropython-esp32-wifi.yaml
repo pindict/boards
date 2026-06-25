@@ -1,0 +1,30 @@
+schema_version: 1
+id: micropython-esp32-wifi
+title: WiFi 接続 (ESP32, MicroPython)
+language: micropython
+summary: STA モードで AP に接続し IP を表示
+boards: [esp32-devkitc-v4, esp32-s3-devkitc-1, esp32-c3-devkitm-1]
+tags: [wifi, network]
+body: |
+  import network
+  import time
+
+  SSID = "your-ssid"
+  PASS = "your-password"
+
+  wlan = network.WLAN(network.STA_IF)
+  wlan.active(True)
+  wlan.connect(SSID, PASS)
+
+  for _ in range(20):
+      if wlan.isconnected():
+          break
+      time.sleep(0.5)
+
+  if wlan.isconnected():
+      print("IP:", wlan.ifconfig()[0])
+  else:
+      print("connection failed")
+explanation: |
+  接続後の `wlan.ifconfig()` は `(ip, netmask, gateway, dns)` のタプル。
+  起動時に自動接続させるなら `boot.py` にこのコードを置く。

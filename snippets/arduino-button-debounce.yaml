@@ -1,0 +1,30 @@
+schema_version: 1
+id: arduino-button-debounce
+title: スイッチのチャタリング除去
+language: arduino-cpp
+summary: ソフトウェアでチャタリングを除去しエッジ検出する定番パターン
+boards: [arduino-uno-r3, arduino-nano, esp32-devkitc-v4]
+tags: [button, gpio, debounce]
+body: |
+  const int BTN = 2;  // 内部プルアップ使用 → ボタンの片端を GND に
+  int prevState = HIGH;
+  unsigned long lastChange = 0;
+  const unsigned long DEBOUNCE_MS = 30;
+
+  void setup() {
+    Serial.begin(115200);
+    pinMode(BTN, INPUT_PULLUP);
+  }
+
+  void loop() {
+    int s = digitalRead(BTN);
+    if (s != prevState && (millis() - lastChange) > DEBOUNCE_MS) {
+      lastChange = millis();
+      prevState = s;
+      if (s == LOW) Serial.println("PRESSED");
+      else          Serial.println("RELEASED");
+    }
+  }
+explanation: |
+  `INPUT_PULLUP` でプルアップ抵抗が内蔵されるので外付け不要。論理は反転 (押す = LOW)。
+  ハードで除去するなら 0.1µF のコンデンサを GND - ピン間に。

@@ -1,0 +1,27 @@
+schema_version: 1
+id: linux-i2cdetect
+title: i2cdetect で I2C デバイス検出 (Linux / RPi)
+language: shell
+summary: Raspberry Pi で I2C バスをスキャンする定番手順
+boards: [raspberry-pi-4b]
+tags: [i2c, linux, debug]
+body: |
+  # 必要パッケージ
+  sudo apt install -y i2c-tools
+
+  # I2C 有効化 (raspi-config の Interface Options から、または):
+  sudo raspi-config nonint do_i2c 0
+
+  # バス番号確認
+  ls /dev/i2c-*
+
+  # スキャン (バス1)
+  sudo i2cdetect -y 1
+
+  # 出力例:
+  #      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+  # 00:                         -- -- -- -- -- -- -- --
+  # 70: -- -- -- -- -- -- 76 --
+explanation: |
+  バス番号は Pi のモデルによって異なる。Pi 4B のヘッダ I2C はバス 1。
+  `0x76` が出れば BME280 などが応答している。

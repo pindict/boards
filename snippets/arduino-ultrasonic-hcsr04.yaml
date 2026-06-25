@@ -1,0 +1,33 @@
+schema_version: 1
+id: arduino-ultrasonic-hcsr04
+title: 超音波距離センサ HC-SR04
+language: arduino-cpp
+summary: TRIG/ECHO 制御で距離 (cm) を測定する
+boards: [arduino-uno-r3, arduino-nano, esp32-devkitc-v4]
+tags: [sensor, distance, ultrasonic]
+body: |
+  const int TRIG = 9;
+  const int ECHO = 10;
+
+  void setup() {
+    Serial.begin(115200);
+    pinMode(TRIG, OUTPUT);
+    pinMode(ECHO, INPUT);
+  }
+
+  long readDistanceCm() {
+    digitalWrite(TRIG, LOW);  delayMicroseconds(2);
+    digitalWrite(TRIG, HIGH); delayMicroseconds(10);
+    digitalWrite(TRIG, LOW);
+    long dur = pulseIn(ECHO, HIGH, 30000UL);  // timeout 30ms (~5m)
+    return dur == 0 ? -1 : dur * 0.0343 / 2;
+  }
+
+  void loop() {
+    long d = readDistanceCm();
+    Serial.println(d);
+    delay(200);
+  }
+explanation: |
+  音速 343 m/s ≒ 0.0343 cm/µs。往復時間を 2 で割って片道距離に。
+  ESP32 (3.3V) で使う場合は ECHO 出力 (5V) を抵抗分圧 (1kΩ + 2kΩ) で 3.3V に下げる。

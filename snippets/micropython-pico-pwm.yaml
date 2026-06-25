@@ -1,0 +1,27 @@
+schema_version: 1
+id: micropython-pico-pwm
+title: PWM サーボ制御 (Pico)
+language: micropython
+summary: machine.PWM でサーボ角を 0-180° で動かす
+boards: [raspberry-pi-pico, raspberry-pi-pico-w]
+tags: [pwm, motor, servo]
+body: |
+  from machine import Pin, PWM
+  import time
+
+  pwm = PWM(Pin(15))
+  pwm.freq(50)  # サーボ標準 50Hz
+
+  def angle(deg):
+      # 0.5ms (0°) - 2.4ms (180°) を 16bit duty に変換
+      us = 500 + (2400 - 500) * deg / 180
+      duty = int(us * 65535 / 20000)  # 20ms period
+      pwm.duty_u16(duty)
+
+  while True:
+      for d in (0, 90, 180, 90):
+          angle(d)
+          time.sleep(0.8)
+explanation: |
+  Pico は全 GPIO で PWM 可。`duty_u16()` は 0-65535 の 16bit デューティ。
+  個体差があるのでパルス幅 (500/2400µs) は実機で微調整する。

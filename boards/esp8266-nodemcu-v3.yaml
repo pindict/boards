@@ -1,0 +1,105 @@
+schema_version: 1
+id: esp8266-nodemcu-v3
+name: NodeMCU v3 (ESP8266)
+aliases: [NodeMCU, ESP-12E DevKit, ESP8266 DevKit]
+manufacturer: Ai-Thinker / Lolin
+family: esp32
+mcu:
+  chip: ESP8266EX (ESP-12E)
+  core: Tensilica L106 32-bit
+  clock_mhz: 80
+  flash_kb: 4096
+  sram_kb: 80
+voltage:
+  logic: 3.3
+  input_min: 4.5
+  input_max: 10.0
+pinout:
+  svg: ""
+  viewbox: { w: 400, h: 660 }
+tags: [wifi, beginner, classic]
+notes: |
+  ESP8266 ベースの古典的開発ボード。3.3V ロジック。GPIO0/2/15 は strapping ピン。
+  D ラベルは NodeMCU 独自の番号で、Arduino IDE 用にマッピングが必要。
+pins:
+  # Left header (15 pins)
+  - { index: 1,  label: "A0",   gpio: null, x: 40, y: 40,  side: left, kind: analog,
+      functions: [{type: adc, note: "0-1V (内部分圧で0-3.3V)"}],
+      warnings: ["ADC 入力電圧は 0-1V (NodeMCU上で分圧抵抗)"] }
+  - { index: 2,  label: "RSV",  gpio: null, x: 40, y: 78,  side: left, kind: digital,
+      warnings: ["Reserved - 未配線"] }
+  - { index: 3,  label: "RSV",  gpio: null, x: 40, y: 116, side: left, kind: digital,
+      warnings: ["Reserved - 未配線"] }
+  - { index: 4,  label: "SD3",  gpio: 10,   x: 40, y: 154, side: left, kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用"] }
+  - { index: 5,  label: "SD2",  gpio: 9,    x: 40, y: 192, side: left, kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用"] }
+  - { index: 6,  label: "SD1",  gpio: 8,    x: 40, y: 230, side: left, kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用"] }
+  - { index: 7,  label: "CMD",  gpio: 11,   x: 40, y: 268, side: left, kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用"] }
+  - { index: 8,  label: "SD0",  gpio: 7,    x: 40, y: 306, side: left, kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用"] }
+  - { index: 9,  label: "CLK",  gpio: 6,    x: 40, y: 344, side: left, kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用"] }
+  - { index: 10, label: "GND",  gpio: null, x: 40, y: 382, side: left, kind: ground }
+  - { index: 11, label: "3V3",  gpio: null, x: 40, y: 420, side: left, kind: power }
+  - { index: 12, label: "EN",   gpio: null, x: 40, y: 458, side: left, kind: reset,
+      warnings: ["LOWでチップ無効"] }
+  - { index: 13, label: "RST",  gpio: null, x: 40, y: 496, side: left, kind: reset }
+  - { index: 14, label: "GND",  gpio: null, x: 40, y: 534, side: left, kind: ground }
+  - { index: 15, label: "Vin",  gpio: null, x: 40, y: 572, side: left, kind: power,
+      warnings: ["4.5-10V 入力可"] }
+  # Right header (15 pins)
+  - { index: 16, label: "D0",   gpio: 16,   x: 360, y: 40,  side: right, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["wake from deep-sleep に使用", "PWM/I2C 不可"] }
+  - { index: 17, label: "D1",   gpio: 5,    x: 360, y: 78,  side: right, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-scl"}, {type: pwm}] }
+  - { index: 18, label: "D2",   gpio: 4,    x: 360, y: 116, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-sda"}, {type: pwm}] }
+  - { index: 19, label: "D3",   gpio: 0,    x: 360, y: 154, side: right, kind: digital,
+      functions: [{type: gpio}, {type: pwm}, {type: strap}],
+      warnings: ["strapping: ブートモード", "FLASHボタンと接続"] }
+  - { index: 20, label: "D4",   gpio: 2,    x: 360, y: 192, side: right, kind: digital,
+      functions: [{type: gpio}, {type: pwm}, {type: strap}],
+      warnings: ["strapping: ブート時HIGH必須", "オンボードLED (active LOW)"] }
+  - { index: 21, label: "3V3",  gpio: null, x: 360, y: 230, side: right, kind: power }
+  - { index: 22, label: "GND",  gpio: null, x: 360, y: 268, side: right, kind: ground }
+  - { index: 23, label: "D5",   gpio: 14,   x: 360, y: 306, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-sck"}, {type: pwm}] }
+  - { index: 24, label: "D6",   gpio: 12,   x: 360, y: 344, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-miso"}, {type: pwm}] }
+  - { index: 25, label: "D7",   gpio: 13,   x: 360, y: 382, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-mosi"}, {type: pwm}] }
+  - { index: 26, label: "D8",   gpio: 15,   x: 360, y: 420, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-cs"}, {type: pwm}, {type: strap}],
+      warnings: ["strapping: ブート時LOW必須"] }
+  - { index: 27, label: "RX",   gpio: 3,    x: 360, y: 458, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART0"}],
+      warnings: ["USB-UART と共有"] }
+  - { index: 28, label: "TX",   gpio: 1,    x: 360, y: 496, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART0"}],
+      warnings: ["USB-UART と共有"] }
+  - { index: 29, label: "GND",  gpio: null, x: 360, y: 534, side: right, kind: ground }
+  - { index: 30, label: "3V3",  gpio: null, x: 360, y: 572, side: right, kind: power }
+datasheets:
+  - title: ESP8266EX Datasheet
+    url: https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf
+    bundled: false
+    language: en
+references:
+  - title: NodeMCU 公式
+    url: https://www.nodemcu.com/index_en.html
+    language: en
+  - title: ESP8266 Arduino Core
+    url: https://arduino-esp8266.readthedocs.io/en/latest/
+    language: en
+snippets:
+  - arduino-i2c-scan

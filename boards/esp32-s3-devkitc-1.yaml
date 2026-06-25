@@ -1,0 +1,130 @@
+schema_version: 1
+id: esp32-s3-devkitc-1
+name: ESP32-S3-DevKitC-1
+aliases: [ESP32-S3 DevKit, ESP32-S3-WROOM-1]
+manufacturer: Espressif
+family: esp32
+mcu:
+  chip: ESP32-S3 (WROOM-1)
+  core: Xtensa LX7 dual-core
+  clock_mhz: 240
+  flash_kb: 8192
+  sram_kb: 512
+voltage:
+  logic: 3.3
+  input_min: 5.0
+  input_max: 5.5
+pinout:
+  svg: ""
+  viewbox: { w: 400, h: 880 }
+tags: [wifi, bluetooth, usb-otg, ai, popular]
+notes: |
+  USB-OTG (USB-C×2: UART/JTAG)、ベクトル拡張で AI/音声処理向け。
+  GPIO19/20 は USB D-/D+ と共用。GPIO0/3/45/46 は strapping。
+pins:
+  # Left header (1-22)
+  - { index: 1,  label: "3V3",    gpio: null, x: 40, y: 40,  side: left, kind: power }
+  - { index: 2,  label: "3V3",    gpio: null, x: 40, y: 78,  side: left, kind: power }
+  - { index: 3,  label: "RST",    gpio: null, x: 40, y: 116, side: left, kind: reset }
+  - { index: 4,  label: "GPIO4",  gpio: 4,    x: 40, y: 154, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH3"}, {type: touch, channel: "T4"}] }
+  - { index: 5,  label: "GPIO5",  gpio: 5,    x: 40, y: 192, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH4"}, {type: touch, channel: "T5"}] }
+  - { index: 6,  label: "GPIO6",  gpio: 6,    x: 40, y: 230, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH5"}, {type: touch, channel: "T6"}] }
+  - { index: 7,  label: "GPIO7",  gpio: 7,    x: 40, y: 268, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH6"}, {type: touch, channel: "T7"}] }
+  - { index: 8,  label: "GPIO15", gpio: 15,   x: 40, y: 306, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH4"}] }
+  - { index: 9,  label: "GPIO16", gpio: 16,   x: 40, y: 344, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH5"}] }
+  - { index: 10, label: "GPIO17", gpio: 17,   x: 40, y: 382, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH6"}] }
+  - { index: 11, label: "GPIO18", gpio: 18,   x: 40, y: 420, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH7"}] }
+  - { index: 12, label: "GPIO8",  gpio: 8,    x: 40, y: 458, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH7"}, {type: "i2c-sda"}] }
+  - { index: 13, label: "GPIO3",  gpio: 3,    x: 40, y: 496, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH2"}, {type: strap}],
+      warnings: ["strapping pin"] }
+  - { index: 14, label: "GPIO46", gpio: 46,   x: 40, y: 534, side: left, kind: digital,
+      functions: [{type: gpio}, {type: strap}],
+      warnings: ["strapping pin: ブート時LOW推奨"] }
+  - { index: 15, label: "GPIO9",  gpio: 9,    x: 40, y: 572, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH8"}, {type: "i2c-scl"}] }
+  - { index: 16, label: "GPIO10", gpio: 10,   x: 40, y: 610, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH9"}] }
+  - { index: 17, label: "GPIO11", gpio: 11,   x: 40, y: 648, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH0"}, {type: "spi-mosi"}] }
+  - { index: 18, label: "GPIO12", gpio: 12,   x: 40, y: 686, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH1"}, {type: "spi-sck"}] }
+  - { index: 19, label: "GPIO13", gpio: 13,   x: 40, y: 724, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH2"}, {type: "spi-miso"}] }
+  - { index: 20, label: "GPIO14", gpio: 14,   x: 40, y: 762, side: left, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH3"}] }
+  - { index: 21, label: "5V",     gpio: null, x: 40, y: 800, side: left, kind: power }
+  - { index: 22, label: "GND",    gpio: null, x: 40, y: 838, side: left, kind: ground }
+  # Right header (23-44)
+  - { index: 23, label: "GND",    gpio: null, x: 360, y: 40,  side: right, kind: ground }
+  - { index: 24, label: "TX",     gpio: 43,   x: 360, y: 78,  side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART0"}],
+      warnings: ["USB-UART"] }
+  - { index: 25, label: "RX",     gpio: 44,   x: 360, y: 116, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART0"}],
+      warnings: ["USB-UART"] }
+  - { index: 26, label: "GPIO1",  gpio: 1,    x: 360, y: 154, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH0"}, {type: touch, channel: "T1"}] }
+  - { index: 27, label: "GPIO2",  gpio: 2,    x: 360, y: 192, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH1"}, {type: touch, channel: "T2"}] }
+  - { index: 28, label: "GPIO42", gpio: 42,   x: 360, y: 230, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "jtag-tms"}] }
+  - { index: 29, label: "GPIO41", gpio: 41,   x: 360, y: 268, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "jtag-tdi"}] }
+  - { index: 30, label: "GPIO40", gpio: 40,   x: 360, y: 306, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "jtag-tdo"}] }
+  - { index: 31, label: "GPIO39", gpio: 39,   x: 360, y: 344, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "jtag-tck"}] }
+  - { index: 32, label: "GPIO38", gpio: 38,   x: 360, y: 382, side: right, kind: digital,
+      functions: [{type: gpio}, {type: rgb, note: "RGB LED on DevKit"}] }
+  - { index: 33, label: "GPIO37", gpio: 37,   x: 360, y: 420, side: right, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["Octal SPI PSRAM 接続版では使用不可"] }
+  - { index: 34, label: "GPIO36", gpio: 36,   x: 360, y: 458, side: right, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["Octal SPI PSRAM 接続版では使用不可"] }
+  - { index: 35, label: "GPIO35", gpio: 35,   x: 360, y: 496, side: right, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["Octal SPI PSRAM 接続版では使用不可"] }
+  - { index: 36, label: "GPIO0",  gpio: 0,    x: 360, y: 534, side: right, kind: digital,
+      functions: [{type: gpio}, {type: strap}],
+      warnings: ["BOOTボタン", "strapping"] }
+  - { index: 37, label: "GPIO45", gpio: 45,   x: 360, y: 572, side: right, kind: digital,
+      functions: [{type: gpio}, {type: strap}],
+      warnings: ["strapping: ブート時LOW推奨"] }
+  - { index: 38, label: "GPIO48", gpio: 48,   x: 360, y: 610, side: right, kind: digital,
+      functions: [{type: gpio}, {type: rgb, note: "WS2812 RGB LED"}] }
+  - { index: 39, label: "GPIO47", gpio: 47,   x: 360, y: 648, side: right, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 40, label: "GPIO21", gpio: 21,   x: 360, y: 686, side: right, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 41, label: "GPIO20", gpio: 20,   x: 360, y: 724, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "usb-d+"}, {type: adc, channel: "ADC2_CH9"}],
+      warnings: ["USB-OTG D+ と共用"] }
+  - { index: 42, label: "GPIO19", gpio: 19,   x: 360, y: 762, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "usb-d-"}, {type: adc, channel: "ADC2_CH8"}],
+      warnings: ["USB-OTG D- と共用"] }
+  - { index: 43, label: "5V",     gpio: null, x: 360, y: 800, side: right, kind: power }
+  - { index: 44, label: "GND",    gpio: null, x: 360, y: 838, side: right, kind: ground }
+datasheets:
+  - title: ESP32-S3 Series Datasheet
+    url: https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf
+    bundled: false
+    language: en
+references:
+  - title: ESP32-S3-DevKitC-1 User Guide
+    url: https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/hw-reference/esp32s3/user-guide-devkitc-1.html
+    language: en
+  - title: ESP-IDF Programming Guide (S3)
+    url: https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/
+    language: en
+snippets: []

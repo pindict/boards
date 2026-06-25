@@ -1,0 +1,38 @@
+schema_version: 1
+id: arduino-i2c-scan
+title: I2C アドレススキャナ (Arduino)
+language: arduino-cpp
+summary: I2C バス上のスレーブアドレスを 0x03-0x77 でスキャンしてシリアルに出す定番コード
+boards: [arduino-uno-r3, esp32-devkitc-v4]
+tags: [i2c, debug, must-have]
+body: |
+  #include <Wire.h>
+
+  void setup() {
+    Serial.begin(115200);
+    Wire.begin(); // ESP32 は Wire.begin(SDA, SCL) で指定可
+    delay(500);
+    Serial.println("I2C Scanner");
+  }
+
+  void loop() {
+    byte count = 0;
+    for (byte addr = 1; addr < 127; addr++) {
+      Wire.beginTransmission(addr);
+      if (Wire.endTransmission() == 0) {
+        Serial.print("Found: 0x");
+        if (addr < 16) Serial.print('0');
+        Serial.println(addr, HEX);
+        count++;
+      }
+    }
+    Serial.print("Done. devices=");
+    Serial.println(count);
+    delay(5000);
+  }
+explanation: |
+  `Wire.endTransmission()` が 0 を返すアドレスは ACK を返したスレーブ。
+  ESP32 で SDA/SCL のピンを変えたい場合は `Wire.begin(21, 22)` のように引数を渡す。
+references:
+  - title: Arduino Wire Library
+    url: https://docs.arduino.cc/language-reference/en/functions/communication/wire/

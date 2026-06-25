@@ -1,0 +1,23 @@
+schema_version: 1
+id: arduino-serial-echo
+title: シリアル受信エコー
+language: arduino-cpp
+summary: シリアルから受信した文字をそのまま返送する。動作確認・通信デバッグの基本
+boards: [arduino-uno-r3, arduino-nano, arduino-mega-2560]
+tags: [serial, debug, must-have]
+body: |
+  void setup() {
+    Serial.begin(115200);
+    while (!Serial) { ; }  // USB シリアル待ち (Leonardo/Micro 用)
+    Serial.println("READY");
+  }
+
+  void loop() {
+    if (Serial.available() > 0) {
+      int c = Serial.read();
+      Serial.write(c);  // エコー
+    }
+  }
+explanation: |
+  `Serial.available()` は受信バッファ内の残バイト数を返す。
+  ボーレートは送受信側で一致させる必要がある (PC 側のシリアルモニタも 115200)。

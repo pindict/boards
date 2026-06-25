@@ -1,0 +1,36 @@
+version: v1.3.0
+boards:
+  - esp32-devkitc-v4.yaml
+  - esp32-s3-devkitc-1.yaml
+  - esp32-c3-devkitm-1.yaml
+  - esp8266-nodemcu-v3.yaml
+  - seeed-xiao-esp32c3.yaml
+  - arduino-uno-r3.yaml
+  - arduino-nano.yaml
+  - arduino-mega-2560.yaml
+  - raspberry-pi-4b.yaml
+  - raspberry-pi-zero-2-w.yaml
+  - raspberry-pi-pico.yaml
+  - raspberry-pi-pico-w.yaml
+  - stm32-blue-pill.yaml
+  - microbit-v2.yaml
+sensors:
+  - bme280.yaml
+snippets:
+  - arduino-blink.yaml
+  - arduino-serial-echo.yaml
+  - arduino-i2c-scan.yaml
+  - arduino-button-debounce.yaml
+  - arduino-pwm-fade.yaml
+  - arduino-servo-basic.yaml
+  - arduino-ultrasonic-hcsr04.yaml
+  - arduino-neopixel-ws2812.yaml
+  - arduino-bme280-basic.yaml
+  - arduino-esp32-wifi-connect.yaml
+  - micropython-esp32-blink.yaml
+  - micropython-esp32-wifi.yaml
+  - micropython-pico-blink.yaml
+  - micropython-pico-pwm.yaml
+  - linux-i2cdetect.yaml
+  - linux-pinout.yaml
+  - linux-raspi-gpio.yaml

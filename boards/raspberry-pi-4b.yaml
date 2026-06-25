@@ -1,0 +1,135 @@
+schema_version: 1
+id: raspberry-pi-4b
+name: Raspberry Pi 4 Model B
+aliases: [RPi 4B, Pi4]
+manufacturer: Raspberry Pi Foundation
+family: raspberry-pi
+mcu:
+  chip: BCM2711
+  core: ARM Cortex-A72 quad-core
+  clock_mhz: 1500
+voltage:
+  logic: 3.3
+  input_min: 5.0
+  input_max: 5.25
+pinout:
+  svg: assets/boards/raspberry-pi-40pin.svg
+  viewbox: { w: 220, h: 820 }
+tags: [linux, sbc, popular]
+notes: |
+  40ピン GPIO ヘッダ。電圧は 3.3V (5V トレラントではない)。
+  I2C は GPIO2/3 (バス1)、SPI は GPIO10/9/11 (SPI0)。
+pins:
+  # Row 1
+  - { index: 1,  label: "3V3",    gpio: null, x: 60,  y: 40,  side: left,  kind: power }
+  - { index: 2,  label: "5V",     gpio: null, x: 160, y: 40,  side: right, kind: power }
+  # Row 2
+  - { index: 3,  label: "GPIO2",  gpio: 2,    x: 60,  y: 78,  side: left,  kind: digital,
+      functions: [{type: gpio}, {type: "i2c-sda", channel: "I2C1"}] }
+  - { index: 4,  label: "5V",     gpio: null, x: 160, y: 78,  side: right, kind: power }
+  # Row 3
+  - { index: 5,  label: "GPIO3",  gpio: 3,    x: 60,  y: 116, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C1"}] }
+  - { index: 6,  label: "GND",    gpio: null, x: 160, y: 116, side: right, kind: ground }
+  # Row 4
+  - { index: 7,  label: "GPIO4",  gpio: 4,    x: 60,  y: 154, side: left,  kind: digital,
+      functions: [{type: gpio}], notes: "1-Wire 既定 / GPCLK0" }
+  - { index: 8,  label: "GPIO14", gpio: 14,   x: 160, y: 154, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART0"}] }
+  # Row 5
+  - { index: 9,  label: "GND",    gpio: null, x: 60,  y: 192, side: left,  kind: ground }
+  - { index: 10, label: "GPIO15", gpio: 15,   x: 160, y: 192, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART0"}] }
+  # Row 6
+  - { index: 11, label: "GPIO17", gpio: 17,   x: 60,  y: 230, side: left,  kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 12, label: "GPIO18", gpio: 18,   x: 160, y: 230, side: right, kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "PWM0"}, {type: i2s, channel: "PCM_CLK"}] }
+  # Row 7
+  - { index: 13, label: "GPIO27", gpio: 27,   x: 60,  y: 268, side: left,  kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 14, label: "GND",    gpio: null, x: 160, y: 268, side: right, kind: ground }
+  # Row 8
+  - { index: 15, label: "GPIO22", gpio: 22,   x: 60,  y: 306, side: left,  kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 16, label: "GPIO23", gpio: 23,   x: 160, y: 306, side: right, kind: digital,
+      functions: [{type: gpio}] }
+  # Row 9
+  - { index: 17, label: "3V3",    gpio: null, x: 60,  y: 344, side: left,  kind: power }
+  - { index: 18, label: "GPIO24", gpio: 24,   x: 160, y: 344, side: right, kind: digital,
+      functions: [{type: gpio}] }
+  # Row 10
+  - { index: 19, label: "GPIO10", gpio: 10,   x: 60,  y: 382, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: "spi-mosi", channel: "SPI0"}] }
+  - { index: 20, label: "GND",    gpio: null, x: 160, y: 382, side: right, kind: ground }
+  # Row 11
+  - { index: 21, label: "GPIO9",  gpio: 9,    x: 60,  y: 420, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: "spi-miso", channel: "SPI0"}] }
+  - { index: 22, label: "GPIO25", gpio: 25,   x: 160, y: 420, side: right, kind: digital,
+      functions: [{type: gpio}] }
+  # Row 12
+  - { index: 23, label: "GPIO11", gpio: 11,   x: 60,  y: 458, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: "spi-sck", channel: "SPI0"}] }
+  - { index: 24, label: "GPIO8",  gpio: 8,    x: 160, y: 458, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-cs", channel: "SPI0_CE0"}] }
+  # Row 13
+  - { index: 25, label: "GND",    gpio: null, x: 60,  y: 496, side: left,  kind: ground }
+  - { index: 26, label: "GPIO7",  gpio: 7,    x: 160, y: 496, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-cs", channel: "SPI0_CE1"}] }
+  # Row 14
+  - { index: 27, label: "GPIO0",  gpio: 0,    x: 60,  y: 534, side: left,  kind: digital,
+      functions: [{type: gpio, note: "ID_SD"}, {type: "i2c-sda", channel: "I2C0/EEPROM"}],
+      warnings: ["HAT 識別用 EEPROM 専用"] }
+  - { index: 28, label: "GPIO1",  gpio: 1,    x: 160, y: 534, side: right, kind: digital,
+      functions: [{type: gpio, note: "ID_SC"}, {type: "i2c-scl", channel: "I2C0/EEPROM"}],
+      warnings: ["HAT 識別用 EEPROM 専用"] }
+  # Row 15
+  - { index: 29, label: "GPIO5",  gpio: 5,    x: 60,  y: 572, side: left,  kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 30, label: "GND",    gpio: null, x: 160, y: 572, side: right, kind: ground }
+  # Row 16
+  - { index: 31, label: "GPIO6",  gpio: 6,    x: 60,  y: 610, side: left,  kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 32, label: "GPIO12", gpio: 12,   x: 160, y: 610, side: right, kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "PWM0"}] }
+  # Row 17
+  - { index: 33, label: "GPIO13", gpio: 13,   x: 60,  y: 648, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "PWM1"}] }
+  - { index: 34, label: "GND",    gpio: null, x: 160, y: 648, side: right, kind: ground }
+  # Row 18
+  - { index: 35, label: "GPIO19", gpio: 19,   x: 60,  y: 686, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "PWM1"}, {type: i2s, channel: "PCM_FS"}] }
+  - { index: 36, label: "GPIO16", gpio: 16,   x: 160, y: 686, side: right, kind: digital,
+      functions: [{type: gpio}] }
+  # Row 19
+  - { index: 37, label: "GPIO26", gpio: 26,   x: 60,  y: 724, side: left,  kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 38, label: "GPIO20", gpio: 20,   x: 160, y: 724, side: right, kind: digital,
+      functions: [{type: gpio}, {type: i2s, channel: "PCM_DIN"}] }
+  # Row 20
+  - { index: 39, label: "GND",    gpio: null, x: 60,  y: 762, side: left,  kind: ground }
+  - { index: 40, label: "GPIO21", gpio: 21,   x: 160, y: 762, side: right, kind: digital,
+      functions: [{type: gpio}, {type: i2s, channel: "PCM_DOUT"}] }
+datasheets:
+  - title: BCM2711 ARM Peripherals
+    url: https://datasheets.raspberrypi.com/bcm2711/bcm2711-peripherals.pdf
+    bundled: false
+    language: en
+  - title: Raspberry Pi 4 B Product Brief (PDF)
+    url: https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-product-brief.pdf
+    bundled: false
+    language: en
+references:
+  - title: Raspberry Pi 公式ドキュメント
+    url: https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
+    language: en
+  - title: gpiozero (Python ライブラリ)
+    url: https://gpiozero.readthedocs.io/
+    language: en
+  - title: pinout.xyz — 40-pin GPIO 図解
+    url: https://pinout.xyz/
+    language: en
+snippets:
+  - linux-pinout
+  - linux-i2cdetect
+  - linux-raspi-gpio

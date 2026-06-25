@@ -1,0 +1,133 @@
+schema_version: 1
+id: esp32-devkitc-v4
+name: ESP32-DevKitC V4
+aliases: [ESP32 DevKit, ESP-WROOM-32 DevKit]
+manufacturer: Espressif
+family: esp32
+mcu:
+  chip: ESP32-WROOM-32E
+  core: Xtensa LX6 dual-core
+  clock_mhz: 240
+  flash_kb: 4096
+  sram_kb: 520
+voltage:
+  logic: 3.3
+  input_min: 5.0
+  input_max: 12.0
+pinout:
+  svg: assets/boards/esp32-devkitc-v4.svg
+  viewbox: { w: 400, h: 800 }
+tags: [wifi, bluetooth, popular]
+notes: |
+  GPIO34-39 は入力専用。GPIO6-11 は内部 SPI フラッシュ用で使用不可。
+  ブート時にレベルが固定される strapping ピンに注意 (0, 2, 5, 12, 15)。
+pins:
+  # ── Left header (1-19, top→bottom) ──────────────────────────────────
+  - { index: 1,  label: "3V3",    gpio: null, x: 40,  y: 40,  side: left,  kind: power }
+  - { index: 2,  label: "EN",     gpio: null, x: 40,  y: 78,  side: left,  kind: reset,
+      warnings: ["LOWでリセット"] }
+  - { index: 3,  label: "GPIO36", gpio: 36,   x: 40,  y: 116, side: left,  kind: analog,
+      functions: [{type: gpio, note: "input only"}, {type: adc, channel: "ADC1_CH0"}],
+      warnings: ["入力専用 (SVP)", "プルアップ/プルダウン不可"] }
+  - { index: 4,  label: "GPIO39", gpio: 39,   x: 40,  y: 154, side: left,  kind: analog,
+      functions: [{type: gpio, note: "input only"}, {type: adc, channel: "ADC1_CH3"}],
+      warnings: ["入力専用 (SVN)"] }
+  - { index: 5,  label: "GPIO34", gpio: 34,   x: 40,  y: 192, side: left,  kind: analog,
+      functions: [{type: gpio, note: "input only"}, {type: adc, channel: "ADC1_CH6"}],
+      warnings: ["入力専用"] }
+  - { index: 6,  label: "GPIO35", gpio: 35,   x: 40,  y: 230, side: left,  kind: analog,
+      functions: [{type: gpio, note: "input only"}, {type: adc, channel: "ADC1_CH7"}],
+      warnings: ["入力専用"] }
+  - { index: 7,  label: "GPIO32", gpio: 32,   x: 40,  y: 268, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH4"}, {type: touch, channel: "T9"}] }
+  - { index: 8,  label: "GPIO33", gpio: 33,   x: 40,  y: 306, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH5"}, {type: touch, channel: "T8"}] }
+  - { index: 9,  label: "GPIO25", gpio: 25,   x: 40,  y: 344, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: dac, channel: "DAC1"}, {type: adc, channel: "ADC2_CH8"}] }
+  - { index: 10, label: "GPIO26", gpio: 26,   x: 40,  y: 382, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: dac, channel: "DAC2"}, {type: adc, channel: "ADC2_CH9"}] }
+  - { index: 11, label: "GPIO27", gpio: 27,   x: 40,  y: 420, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH7"}, {type: touch, channel: "T7"}, {type: pwm}] }
+  - { index: 12, label: "GPIO14", gpio: 14,   x: 40,  y: 458, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH6"}, {type: touch, channel: "T6"}, {type: "spi-sck", channel: "HSPI"}, {type: pwm}] }
+  - { index: 13, label: "GPIO12", gpio: 12,   x: 40,  y: 496, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH5"}, {type: touch, channel: "T5"}, {type: "spi-miso", channel: "HSPI"}, {type: strap}],
+      warnings: ["strapping pin: ブート時LOW必須"] }
+  - { index: 14, label: "GND",    gpio: null, x: 40,  y: 534, side: left,  kind: ground }
+  - { index: 15, label: "GPIO13", gpio: 13,   x: 40,  y: 572, side: left,  kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH4"}, {type: touch, channel: "T4"}, {type: "spi-mosi", channel: "HSPI"}, {type: pwm}] }
+  - { index: 16, label: "SD2",    gpio: 9,    x: 40,  y: 610, side: left,  kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用 - 使用不可"] }
+  - { index: 17, label: "SD3",    gpio: 10,   x: 40,  y: 648, side: left,  kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用 - 使用不可"] }
+  - { index: 18, label: "CMD",    gpio: 11,   x: 40,  y: 686, side: left,  kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用 - 使用不可"] }
+  - { index: 19, label: "5V",     gpio: null, x: 40,  y: 724, side: left,  kind: power }
+  # ── Right header (20-38, top→bottom) ────────────────────────────────
+  - { index: 20, label: "GND",    gpio: null, x: 360, y: 40,  side: right, kind: ground }
+  - { index: 21, label: "GPIO23", gpio: 23,   x: 360, y: 78,  side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-mosi", channel: "VSPI"}, {type: pwm}] }
+  - { index: 22, label: "GPIO22", gpio: 22,   x: 360, y: 116, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C0"}, {type: pwm}] }
+  - { index: 23, label: "TXD0",   gpio: 1,    x: 360, y: 154, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART0"}],
+      warnings: ["USB-UART と共有 (書込み中は使用不可)"] }
+  - { index: 24, label: "RXD0",   gpio: 3,    x: 360, y: 192, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART0"}],
+      warnings: ["USB-UART と共有"] }
+  - { index: 25, label: "GPIO21", gpio: 21,   x: 360, y: 230, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-sda", channel: "I2C0"}, {type: pwm}] }
+  - { index: 26, label: "GND",    gpio: null, x: 360, y: 268, side: right, kind: ground }
+  - { index: 27, label: "GPIO19", gpio: 19,   x: 360, y: 306, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-miso", channel: "VSPI"}, {type: pwm}] }
+  - { index: 28, label: "GPIO18", gpio: 18,   x: 360, y: 344, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-sck", channel: "VSPI"}, {type: pwm}] }
+  - { index: 29, label: "GPIO5",  gpio: 5,    x: 360, y: 382, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-cs", channel: "VSPI"}, {type: pwm}, {type: strap}],
+      warnings: ["strapping pin: ブート時HIGH"] }
+  - { index: 30, label: "TX2",    gpio: 17,   x: 360, y: 420, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART2"}, {type: pwm}] }
+  - { index: 31, label: "RX2",    gpio: 16,   x: 360, y: 458, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART2"}, {type: pwm}] }
+  - { index: 32, label: "GPIO4",  gpio: 4,    x: 360, y: 496, side: right, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH0"}, {type: touch, channel: "T0"}, {type: pwm}] }
+  - { index: 33, label: "GPIO0",  gpio: 0,    x: 360, y: 534, side: right, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH1"}, {type: touch, channel: "T1"}, {type: strap}],
+      warnings: ["strapping pin: ブートモード", "BOOTボタンと接続"] }
+  - { index: 34, label: "GPIO2",  gpio: 2,    x: 360, y: 572, side: right, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH2"}, {type: touch, channel: "T2"}, {type: strap}],
+      warnings: ["strapping pin", "オンボードLED"] }
+  - { index: 35, label: "GPIO15", gpio: 15,   x: 360, y: 610, side: right, kind: digital,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH3"}, {type: touch, channel: "T3"}, {type: "spi-cs", channel: "HSPI"}, {type: strap}],
+      warnings: ["strapping pin: ブート時HIGH"] }
+  - { index: 36, label: "SD1",    gpio: 8,    x: 360, y: 648, side: right, kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用 - 使用不可"] }
+  - { index: 37, label: "SD0",    gpio: 7,    x: 360, y: 686, side: right, kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用 - 使用不可"] }
+  - { index: 38, label: "CLK",    gpio: 6,    x: 360, y: 724, side: right, kind: digital,
+      functions: [{type: gpio, note: "flash"}],
+      warnings: ["内蔵フラッシュ用 - 使用不可"] }
+datasheets:
+  - title: ESP32 Series Datasheet
+    url: https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf
+    bundled: false
+    language: en
+references:
+  - title: ESP32-DevKitC V4 Getting Started
+    url: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32/get-started-devkitc.html
+    language: en
+  - title: ESP32 Arduino Core (公式)
+    url: https://docs.espressif.com/projects/arduino-esp32/en/latest/
+    language: en
+  - title: random nerd tutorials — ESP32 Pinout Reference
+    url: https://randomnerdtutorials.com/esp32-pinout-reference-gpios/
+    language: en
+snippets:
+  - arduino-i2c-scan
+  - micropython-esp32-blink
+  - arduino-esp32-wifi-connect

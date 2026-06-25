@@ -1,0 +1,21 @@
+schema_version: 1
+id: linux-raspi-gpio
+title: GPIO 制御 (Python, gpiozero)
+language: python
+summary: gpiozero で LED 点滅・ボタン入力を扱う Raspberry Pi の基本
+boards: [raspberry-pi-4b, raspberry-pi-zero-2-w]
+tags: [raspberry-pi, gpio, gpiozero]
+body: |
+  from gpiozero import LED, Button
+  from signal import pause
+
+  led = LED(17)         # BCM GPIO17 (物理 11 番)
+  btn = Button(2)       # BCM GPIO2 (物理 3 番)
+
+  btn.when_pressed = led.on
+  btn.when_released = led.off
+
+  pause()  # イベントループ
+explanation: |
+  ピン番号は BCM 番号 (GPIOnn) がデフォルト。物理番号で指定したい場合は
+  `LED("BOARD11")` のような表記。Pi 5 は libgpiod バックエンドが必要。

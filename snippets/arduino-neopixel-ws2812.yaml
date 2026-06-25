@@ -1,0 +1,32 @@
+schema_version: 1
+id: arduino-neopixel-ws2812
+title: NeoPixel (WS2812B) 制御
+language: arduino-cpp
+summary: Adafruit_NeoPixel ライブラリで RGB LED テープを点灯
+boards: [arduino-uno-r3, esp32-devkitc-v4, esp32-s3-devkitc-1]
+tags: [led, rgb, ws2812, neopixel]
+body: |
+  #include <Adafruit_NeoPixel.h>
+
+  #define PIN_DATA  6
+  #define N_PIXELS  16
+
+  Adafruit_NeoPixel strip(N_PIXELS, PIN_DATA, NEO_GRB + NEO_KHZ800);
+
+  void setup() {
+    strip.begin();
+    strip.setBrightness(40);  // 0-255
+  }
+
+  void loop() {
+    for (int i = 0; i < N_PIXELS; i++) {
+      strip.setPixelColor(i, strip.Color(255, 0, 0));  // 赤
+      strip.show();
+      delay(50);
+      strip.setPixelColor(i, 0);
+    }
+  }
+explanation: |
+  輝度を上げると消費電力が大きく、USB 給電 (500mA) では制限される。
+  60 個以上なら別電源 (5V/2A 〜) を用意し、データ線に 330-470Ω のシリーズ抵抗、
+  電源に 1000µF のバルクコンデンサを入れると安定する。

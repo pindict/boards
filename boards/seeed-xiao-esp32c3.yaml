@@ -1,0 +1,56 @@
+schema_version: 1
+id: seeed-xiao-esp32c3
+name: Seeed XIAO ESP32-C3
+aliases: [XIAO C3, Seeeduino XIAO ESP32C3]
+manufacturer: Seeed Studio
+family: esp32
+mcu:
+  chip: ESP32-C3 (FN4)
+  core: RISC-V single-core
+  clock_mhz: 160
+  flash_kb: 4096
+  sram_kb: 400
+voltage:
+  logic: 3.3
+  input_min: 3.3
+  input_max: 5.0
+pinout:
+  svg: ""
+  viewbox: { w: 400, h: 480 }
+tags: [wifi, ble, tiny, lipo]
+notes: |
+  21×17.5mm の超小型ボード。USB-C 給電 + LiPo バッテリ充電回路内蔵。
+  外部アンテナコネクタ装備。
+pins:
+  - { index: 1,  label: "D0/A0",  gpio: 2,  x: 40, y: 40,  side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH2"}] }
+  - { index: 2,  label: "D1/A1",  gpio: 3,  x: 40, y: 78,  side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH3"}] }
+  - { index: 3,  label: "D2/A2",  gpio: 4,  x: 40, y: 116, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH4"}] }
+  - { index: 4,  label: "D3/A3",  gpio: 5,  x: 40, y: 154, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH5"}] }
+  - { index: 5,  label: "D4/SDA", gpio: 6,  x: 40, y: 192, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-sda"}] }
+  - { index: 6,  label: "D5/SCL", gpio: 7,  x: 40, y: 230, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-scl"}] }
+  - { index: 7,  label: "D6/TX",  gpio: 21, x: 40, y: 268, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART0"}] }
+  - { index: 8,  label: "D7/RX",  gpio: 20, x: 360, y: 268, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART0"}] }
+  - { index: 9,  label: "D8/SCK", gpio: 8,  x: 360, y: 230, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-sck"}, {type: strap}] }
+  - { index: 10, label: "D9/MISO",gpio: 9,  x: 360, y: 192, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-miso"}, {type: strap}],
+      warnings: ["BOOTボタンと共有"] }
+  - { index: 11, label: "D10/MOSI",gpio: 10, x: 360, y: 154, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-mosi"}] }
+  - { index: 12, label: "3V3",    gpio: null, x: 360, y: 116, side: right, kind: power }
+  - { index: 13, label: "GND",    gpio: null, x: 360, y: 78,  side: right, kind: ground }
+  - { index: 14, label: "5V",     gpio: null, x: 360, y: 40,  side: right, kind: power }
+datasheets:
+references:
+  - title: Seeed XIAO ESP32C3 Wiki
+    url: https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/
+    language: en
+snippets: []

@@ -1,0 +1,96 @@
+schema_version: 1
+id: microbit-v2
+name: BBC micro:bit v2
+aliases: [microbit, BBC microbit V2]
+manufacturer: Micro:bit Educational Foundation
+family: micro:bit
+mcu:
+  chip: nRF52833
+  core: ARM Cortex-M4
+  clock_mhz: 64
+  flash_kb: 512
+  sram_kb: 128
+voltage:
+  logic: 3.3
+  input_min: 1.8
+  input_max: 3.6
+pinout:
+  svg: ""
+  viewbox: { w: 400, h: 580 }
+tags: [education, ble, sensors]
+notes: |
+  教育向け。LED 25個マトリクス、ボタン×2、加速度・コンパス・マイク・スピーカ・タッチセンサ内蔵。
+  エッジコネクタ 25 ピン (うち P0-P2/3V/GND は大型リング)。
+pins:
+  - { index: 1,  label: "P0",   gpio: 2,  x: 40, y: 40,  side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "AIN0"}, {type: pwm}, {type: touch}],
+      warnings: ["大型リング (ワニ口対応)"] }
+  - { index: 2,  label: "P1",   gpio: 3,  x: 40, y: 78,  side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "AIN1"}, {type: pwm}, {type: touch}],
+      warnings: ["大型リング"] }
+  - { index: 3,  label: "P2",   gpio: 4,  x: 40, y: 116, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "AIN2"}, {type: pwm}, {type: touch}],
+      warnings: ["大型リング"] }
+  - { index: 4,  label: "P3",   gpio: 31, x: 40, y: 154, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "AIN7"}],
+      warnings: ["LED Col1 と共有"] }
+  - { index: 5,  label: "P4",   gpio: 28, x: 40, y: 192, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "AIN4"}],
+      warnings: ["LED Col2 と共有"] }
+  - { index: 6,  label: "P5",   gpio: 14, x: 40, y: 230, side: left, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["ボタン A と共有"] }
+  - { index: 7,  label: "P6",   gpio: 37, x: 40, y: 268, side: left, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["LED Col9 と共有"] }
+  - { index: 8,  label: "P7",   gpio: 11, x: 40, y: 306, side: left, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["LED Col4 と共有"] }
+  - { index: 9,  label: "P8",   gpio: 10, x: 40, y: 344, side: left, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 10, label: "P9",   gpio: 9,  x: 40, y: 382, side: left, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["LED Col7 と共有"] }
+  - { index: 11, label: "P10",  gpio: 30, x: 40, y: 420, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "AIN6"}],
+      warnings: ["LED Col5 と共有"] }
+  - { index: 12, label: "P11",  gpio: 23, x: 40, y: 458, side: left, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["ボタン B と共有"] }
+  - { index: 13, label: "P12",  gpio: 12, x: 40, y: 496, side: left, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 14, label: "P13",  gpio: 17, x: 360, y: 40,  side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-sck"}] }
+  - { index: 15, label: "P14",  gpio: 1,  x: 360, y: 78,  side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-miso"}] }
+  - { index: 16, label: "P15",  gpio: 13, x: 360, y: 116, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-mosi"}] }
+  - { index: 17, label: "P16",  gpio: 34, x: 360, y: 154, side: right, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 18, label: "P19",  gpio: 26, x: 360, y: 192, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-scl"}],
+      warnings: ["内蔵センサ I2C と共有"] }
+  - { index: 19, label: "P20",  gpio: 32, x: 360, y: 230, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-sda"}],
+      warnings: ["内蔵センサ I2C と共有"] }
+  - { index: 20, label: "3V",   gpio: null, x: 360, y: 268, side: right, kind: power,
+      warnings: ["大型リング、最大 200mA"] }
+  - { index: 21, label: "GND",  gpio: null, x: 360, y: 306, side: right, kind: ground,
+      warnings: ["大型リング"] }
+datasheets:
+  - title: micro:bit v2 Pinout & Hardware
+    url: https://tech.microbit.org/hardware/edgeconnector/
+    bundled: false
+    language: en
+  - title: nRF52833 Product Specification
+    url: https://infocenter.nordicsemi.com/pdf/nRF52833_PS_v1.5.pdf
+    bundled: false
+    language: en
+references:
+  - title: micro:bit MakeCode
+    url: https://makecode.microbit.org/
+    language: en
+  - title: Python Editor for micro:bit
+    url: https://python.microbit.org/
+    language: en
+snippets: []

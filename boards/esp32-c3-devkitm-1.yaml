@@ -1,0 +1,79 @@
+schema_version: 1
+id: esp32-c3-devkitm-1
+name: ESP32-C3-DevKitM-1
+aliases: [ESP32-C3 DevKit, ESP32-C3-MINI-1]
+manufacturer: Espressif
+family: esp32
+mcu:
+  chip: ESP32-C3 (MINI-1)
+  core: RISC-V single-core
+  clock_mhz: 160
+  flash_kb: 4096
+  sram_kb: 400
+voltage:
+  logic: 3.3
+  input_min: 5.0
+  input_max: 5.5
+pinout:
+  svg: ""
+  viewbox: { w: 400, h: 660 }
+tags: [wifi, bluetooth, risc-v, low-cost]
+notes: |
+  RISC-V 32-bit、Wi-Fi 4 / BLE 5。USB Serial/JTAG 内蔵 (GPIO18/19)。
+  GPIO2/8/9 は strapping ピン。GPIO12-17 は内蔵フラッシュ用。
+pins:
+  - { index: 1,  label: "5V",     gpio: null, x: 40, y: 40,  side: left, kind: power }
+  - { index: 2,  label: "GND",    gpio: null, x: 40, y: 78,  side: left, kind: ground }
+  - { index: 3,  label: "3V3",    gpio: null, x: 40, y: 116, side: left, kind: power }
+  - { index: 4,  label: "GPIO4",  gpio: 4,    x: 40, y: 154, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH4"}, {type: "spi-cs"}] }
+  - { index: 5,  label: "GPIO5",  gpio: 5,    x: 40, y: 192, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-miso"}] }
+  - { index: 6,  label: "GPIO6",  gpio: 6,    x: 40, y: 230, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-sck"}] }
+  - { index: 7,  label: "GPIO7",  gpio: 7,    x: 40, y: 268, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-mosi"}] }
+  - { index: 8,  label: "GPIO8",  gpio: 8,    x: 40, y: 306, side: left, kind: digital,
+      functions: [{type: gpio}, {type: strap}],
+      warnings: ["strapping: ブート時HIGH"] }
+  - { index: 9,  label: "GPIO9",  gpio: 9,    x: 40, y: 344, side: left, kind: digital,
+      functions: [{type: gpio}, {type: strap}],
+      warnings: ["strapping: BOOTボタン", "内部プルアップあり"] }
+  - { index: 10, label: "5V",     gpio: null, x: 40, y: 382, side: left, kind: power }
+  - { index: 11, label: "GND",    gpio: null, x: 40, y: 420, side: left, kind: ground }
+  - { index: 12, label: "GPIO10", gpio: 10,   x: 40, y: 458, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART1"}] }
+  - { index: 13, label: "GND",    gpio: null, x: 40, y: 496, side: left, kind: ground }
+  # Right header
+  - { index: 14, label: "GPIO0",  gpio: 0,    x: 360, y: 40,  side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH0"}] }
+  - { index: 15, label: "GPIO1",  gpio: 1,    x: 360, y: 78,  side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH1"}] }
+  - { index: 16, label: "GPIO2",  gpio: 2,    x: 360, y: 116, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH2"}, {type: strap}],
+      warnings: ["strapping: ブート時状態でモード切替"] }
+  - { index: 17, label: "GPIO3",  gpio: 3,    x: 360, y: 154, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH3"}] }
+  - { index: 18, label: "GPIO18", gpio: 18,   x: 360, y: 192, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "usb-d-"}, {type: "jtag"}],
+      warnings: ["USB Serial/JTAG D-"] }
+  - { index: 19, label: "GPIO19", gpio: 19,   x: 360, y: 230, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "usb-d+"}, {type: "jtag"}],
+      warnings: ["USB Serial/JTAG D+"] }
+  - { index: 20, label: "GPIO20", gpio: 20,   x: 360, y: 268, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART0"}],
+      warnings: ["USB-UART"] }
+  - { index: 21, label: "GPIO21", gpio: 21,   x: 360, y: 306, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART0"}],
+      warnings: ["USB-UART"] }
+  - { index: 22, label: "RST",    gpio: null, x: 360, y: 344, side: right, kind: reset }
+datasheets:
+  - title: ESP32-C3 Series Datasheet
+    url: https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf
+    bundled: false
+    language: en
+references:
+  - title: ESP32-C3-DevKitM-1 User Guide
+    url: https://docs.espressif.com/projects/esp-idf/en/latest/esp32c3/hw-reference/esp32c3/user-guide-devkitm-1.html
+    language: en
+snippets: []

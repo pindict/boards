@@ -1,0 +1,22 @@
+schema_version: 1
+id: arduino-blink
+title: LED 点滅 (Hello World)
+language: arduino-cpp
+summary: オンボード LED (D13) を 1 秒間隔で点滅させる Arduino の Hello World
+boards: [arduino-uno-r3, arduino-nano, arduino-mega-2560]
+tags: [basic, gpio, must-have]
+body: |
+  void setup() {
+    pinMode(LED_BUILTIN, OUTPUT);
+  }
+
+  void loop() {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(1000);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(1000);
+  }
+explanation: |
+  `LED_BUILTIN` は基板上の LED ピン番号を表すマクロ (UNO/Nano は D13)。
+  `delay()` はブロッキング呼び出しで、その間 CPU は他の処理ができない。
+  非同期にしたい場合は `millis()` を使った状態管理に切り替える。

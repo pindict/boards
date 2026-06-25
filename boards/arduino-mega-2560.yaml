@@ -1,0 +1,114 @@
+schema_version: 1
+id: arduino-mega-2560
+name: Arduino Mega 2560 R3
+aliases: [Mega 2560, ATmega2560]
+manufacturer: Arduino
+family: arduino
+mcu:
+  chip: ATmega2560
+  core: AVR 8-bit
+  clock_mhz: 16
+  flash_kb: 256
+  sram_kb: 8
+voltage:
+  logic: 5.0
+  input_min: 7.0
+  input_max: 12.0
+pinout:
+  svg: ""
+  viewbox: { w: 760, h: 980 }
+tags: [classic, many-io, robotics]
+notes: |
+  デジタル 54本 (PWM 15本)、アナログ 16本、USART 4ch。
+  Hardware Serial: Serial(0), Serial1(18/19), Serial2(16/17), Serial3(14/15)。
+  I2C = 20(SDA)/21(SCL)、SPI = 50(MISO)/51(MOSI)/52(SCK)/53(SS)。
+pins:
+  # Power group (top-left, 1-8)
+  - { index: 1,  label: "IOREF", gpio: null, x: 40, y: 40,  side: left, kind: power }
+  - { index: 2,  label: "RESET", gpio: null, x: 40, y: 80,  side: left, kind: reset }
+  - { index: 3,  label: "3V3",   gpio: null, x: 40, y: 120, side: left, kind: power }
+  - { index: 4,  label: "5V",    gpio: null, x: 40, y: 160, side: left, kind: power }
+  - { index: 5,  label: "GND",   gpio: null, x: 40, y: 200, side: left, kind: ground }
+  - { index: 6,  label: "GND",   gpio: null, x: 40, y: 240, side: left, kind: ground }
+  - { index: 7,  label: "VIN",   gpio: null, x: 40, y: 280, side: left, kind: power }
+  # Analog (left, 8-23) A0-A15
+  - { index: 8,  label: "A0",    gpio: 54, x: 40, y: 340, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC0"}] }
+  - { index: 9,  label: "A1",    gpio: 55, x: 40, y: 380, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC1"}] }
+  - { index: 10, label: "A2",    gpio: 56, x: 40, y: 420, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC2"}] }
+  - { index: 11, label: "A3",    gpio: 57, x: 40, y: 460, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC3"}] }
+  - { index: 12, label: "A4",    gpio: 58, x: 40, y: 500, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC4"}] }
+  - { index: 13, label: "A5",    gpio: 59, x: 40, y: 540, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC5"}] }
+  - { index: 14, label: "A6",    gpio: 60, x: 40, y: 580, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC6"}] }
+  - { index: 15, label: "A7",    gpio: 61, x: 40, y: 620, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC7"}] }
+  - { index: 16, label: "A8",    gpio: 62, x: 40, y: 660, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC8"}] }
+  - { index: 17, label: "A9",    gpio: 63, x: 40, y: 700, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC9"}] }
+  - { index: 18, label: "A10",   gpio: 64, x: 40, y: 740, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC10"}] }
+  - { index: 19, label: "A11",   gpio: 65, x: 40, y: 780, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC11"}] }
+  - { index: 20, label: "A12",   gpio: 66, x: 40, y: 820, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC12"}] }
+  - { index: 21, label: "A13",   gpio: 67, x: 40, y: 860, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC13"}] }
+  - { index: 22, label: "A14",   gpio: 68, x: 40, y: 900, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC14"}] }
+  - { index: 23, label: "A15",   gpio: 69, x: 40, y: 940, side: left, kind: analog, functions: [{type: gpio}, {type: adc, channel: "ADC15"}] }
+  # Top digital (24-37): D22-D53 displayed in middle column 1
+  - { index: 24, label: "D22", gpio: 22, x: 280, y: 40,  side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 25, label: "D23", gpio: 23, x: 280, y: 80,  side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 26, label: "D24", gpio: 24, x: 280, y: 120, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 27, label: "D25", gpio: 25, x: 280, y: 160, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 28, label: "D26", gpio: 26, x: 280, y: 200, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 29, label: "D27", gpio: 27, x: 280, y: 240, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 30, label: "D28", gpio: 28, x: 280, y: 280, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 31, label: "D29", gpio: 29, x: 280, y: 320, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 32, label: "D30", gpio: 30, x: 280, y: 360, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 33, label: "D31", gpio: 31, x: 280, y: 400, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 34, label: "D32", gpio: 32, x: 280, y: 440, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 35, label: "D33", gpio: 33, x: 280, y: 480, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 36, label: "D34", gpio: 34, x: 280, y: 520, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 37, label: "D35", gpio: 35, x: 280, y: 560, side: right, kind: digital, functions: [{type: gpio}] }
+  # Middle column 2 (38-49): D36-D47
+  - { index: 38, label: "D36", gpio: 36, x: 520, y: 40,  side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 39, label: "D37", gpio: 37, x: 520, y: 80,  side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 40, label: "D38", gpio: 38, x: 520, y: 120, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 41, label: "D39", gpio: 39, x: 520, y: 160, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 42, label: "D40", gpio: 40, x: 520, y: 200, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 43, label: "D41", gpio: 41, x: 520, y: 240, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 44, label: "D42", gpio: 42, x: 520, y: 280, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 45, label: "D43", gpio: 43, x: 520, y: 320, side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 46, label: "D44", gpio: 44, x: 520, y: 360, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 47, label: "D45", gpio: 45, x: 520, y: 400, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 48, label: "D46", gpio: 46, x: 520, y: 440, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 49, label: "D47", gpio: 47, x: 520, y: 480, side: right, kind: digital, functions: [{type: gpio}] }
+  # Right (50-69): D48-D53, comms, PWM, D0-D13
+  - { index: 50, label: "D48", gpio: 48, x: 720, y: 40,  side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 51, label: "D49", gpio: 49, x: 720, y: 80,  side: right, kind: digital, functions: [{type: gpio}] }
+  - { index: 52, label: "D50/MISO", gpio: 50, x: 720, y: 120, side: right, kind: digital, functions: [{type: gpio}, {type: "spi-miso"}] }
+  - { index: 53, label: "D51/MOSI", gpio: 51, x: 720, y: 160, side: right, kind: digital, functions: [{type: gpio}, {type: "spi-mosi"}] }
+  - { index: 54, label: "D52/SCK",  gpio: 52, x: 720, y: 200, side: right, kind: digital, functions: [{type: gpio}, {type: "spi-sck"}] }
+  - { index: 55, label: "D53/SS",   gpio: 53, x: 720, y: 240, side: right, kind: digital, functions: [{type: gpio}, {type: "spi-cs"}] }
+  - { index: 56, label: "D13/LED", gpio: 13, x: 720, y: 300, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}], warnings: ["LED_BUILTIN"] }
+  - { index: 57, label: "D12", gpio: 12, x: 720, y: 340, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 58, label: "D11", gpio: 11, x: 720, y: 380, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 59, label: "D10", gpio: 10, x: 720, y: 420, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 60, label: "D9",  gpio: 9,  x: 720, y: 460, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 61, label: "D8",  gpio: 8,  x: 720, y: 500, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 62, label: "D7",  gpio: 7,  x: 720, y: 540, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 63, label: "D6",  gpio: 6,  x: 720, y: 580, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 64, label: "D5",  gpio: 5,  x: 720, y: 620, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 65, label: "D4",  gpio: 4,  x: 720, y: 660, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}] }
+  - { index: 66, label: "D3",  gpio: 3,  x: 720, y: 700, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}, {type: "ext-int", channel: "INT1"}] }
+  - { index: 67, label: "D2",  gpio: 2,  x: 720, y: 740, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}, {type: "ext-int", channel: "INT0"}] }
+  - { index: 68, label: "D1/TX0", gpio: 1, x: 720, y: 780, side: right, kind: digital, functions: [{type: gpio}, {type: "uart-tx", channel: "USART0"}] }
+  - { index: 69, label: "D0/RX0", gpio: 0, x: 720, y: 820, side: right, kind: digital, functions: [{type: gpio}, {type: "uart-rx", channel: "USART0"}] }
+  - { index: 70, label: "D14/TX3", gpio: 14, x: 720, y: 880, side: right, kind: digital, functions: [{type: gpio}, {type: "uart-tx", channel: "USART3"}] }
+  - { index: 71, label: "D15/RX3", gpio: 15, x: 720, y: 920, side: right, kind: digital, functions: [{type: gpio}, {type: "uart-rx", channel: "USART3"}] }
+  - { index: 72, label: "D20/SDA", gpio: 20, x: 280, y: 600, side: right, kind: digital, functions: [{type: gpio}, {type: "i2c-sda"}] }
+  - { index: 73, label: "D21/SCL", gpio: 21, x: 280, y: 640, side: right, kind: digital, functions: [{type: gpio}, {type: "i2c-scl"}] }
+datasheets:
+  - title: ATmega2560 Datasheet
+    url: https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf
+    bundled: false
+    language: en
+references:
+  - title: Arduino Mega 2560 Rev3 (公式 hardware)
+    url: https://docs.arduino.cc/hardware/mega-2560
+    language: en
+snippets:
+  - arduino-i2c-scan

@@ -1,0 +1,26 @@
+schema_version: 1
+id: arduino-servo-basic
+title: サーボモータ (SG90 系) 制御
+language: arduino-cpp
+summary: PWM ピンに接続したサーボを 0-180° で動かす最小例
+boards: [arduino-uno-r3, arduino-nano, arduino-mega-2560]
+tags: [pwm, motor, sg90]
+body: |
+  #include <Servo.h>
+
+  Servo srv;
+  const int SERVO_PIN = 9;  // PWM ピン
+
+  void setup() {
+    srv.attach(SERVO_PIN);
+  }
+
+  void loop() {
+    srv.write(0);    delay(800);
+    srv.write(90);   delay(800);
+    srv.write(180);  delay(800);
+  }
+explanation: |
+  SG90 は黄色信号線・赤 5V・茶 GND。Arduino の 5V から直接給電すると突入電流で
+  リセットすることがあるので、複数台や負荷時は外部電源を推奨。
+  ESP32 では `ESP32Servo` ライブラリで同じ API が使える。

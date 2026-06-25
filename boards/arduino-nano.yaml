@@ -1,0 +1,100 @@
+schema_version: 1
+id: arduino-nano
+name: Arduino Nano
+aliases: [Nano v3, ATmega328P Nano]
+manufacturer: Arduino
+family: arduino
+mcu:
+  chip: ATmega328P
+  core: AVR 8-bit
+  clock_mhz: 16
+  flash_kb: 32
+  sram_kb: 2
+voltage:
+  logic: 5.0
+  input_min: 7.0
+  input_max: 12.0
+pinout:
+  svg: ""
+  viewbox: { w: 400, h: 660 }
+tags: [classic, beginner, breadboard]
+notes: |
+  ATmega328P + Mini-B USB の小型 Arduino。UNO とピン機能はほぼ同じ。
+  D13 = LED_BUILTIN。A6/A7 はアナログ入力専用 (デジタル不可)。
+pins:
+  # Left header (15 pins)
+  - { index: 1,  label: "D1/TX", gpio: 1,  x: 40, y: 40,  side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "USART0"}],
+      warnings: ["USB-Serial と共有"] }
+  - { index: 2,  label: "D0/RX", gpio: 0,  x: 40, y: 78,  side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "USART0"}],
+      warnings: ["USB-Serial と共有"] }
+  - { index: 3,  label: "RST",   gpio: null, x: 40, y: 116, side: left, kind: reset,
+      warnings: ["LOWでリセット"] }
+  - { index: 4,  label: "GND",   gpio: null, x: 40, y: 154, side: left, kind: ground }
+  - { index: 5,  label: "D2",    gpio: 2,  x: 40, y: 192, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "ext-int", channel: "INT0"}] }
+  - { index: 6,  label: "D3",    gpio: 3,  x: 40, y: 230, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "ext-int", channel: "INT1"}, {type: pwm}] }
+  - { index: 7,  label: "D4",    gpio: 4,  x: 40, y: 268, side: left, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 8,  label: "D5",    gpio: 5,  x: 40, y: 306, side: left, kind: digital,
+      functions: [{type: gpio}, {type: pwm}] }
+  - { index: 9,  label: "D6",    gpio: 6,  x: 40, y: 344, side: left, kind: digital,
+      functions: [{type: gpio}, {type: pwm}] }
+  - { index: 10, label: "D7",    gpio: 7,  x: 40, y: 382, side: left, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 11, label: "D8",    gpio: 8,  x: 40, y: 420, side: left, kind: digital,
+      functions: [{type: gpio}] }
+  - { index: 12, label: "D9",    gpio: 9,  x: 40, y: 458, side: left, kind: digital,
+      functions: [{type: gpio}, {type: pwm}] }
+  - { index: 13, label: "D10",   gpio: 10, x: 40, y: 496, side: left, kind: digital,
+      functions: [{type: gpio}, {type: pwm}, {type: "spi-cs", channel: "SPI"}] }
+  - { index: 14, label: "D11",   gpio: 11, x: 40, y: 534, side: left, kind: digital,
+      functions: [{type: gpio}, {type: pwm}, {type: "spi-mosi", channel: "SPI"}] }
+  - { index: 15, label: "D12",   gpio: 12, x: 40, y: 572, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-miso", channel: "SPI"}] }
+  # Right header (15 pins)
+  - { index: 16, label: "D13",   gpio: 13, x: 360, y: 40,  side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-sck", channel: "SPI"}],
+      warnings: ["LED_BUILTIN"] }
+  - { index: 17, label: "3V3",   gpio: null, x: 360, y: 78,  side: right, kind: power,
+      warnings: ["最大 50mA"] }
+  - { index: 18, label: "AREF",  gpio: null, x: 360, y: 116, side: right, kind: analog }
+  - { index: 19, label: "A0",    gpio: 14, x: 360, y: 154, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC0"}] }
+  - { index: 20, label: "A1",    gpio: 15, x: 360, y: 192, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1"}] }
+  - { index: 21, label: "A2",    gpio: 16, x: 360, y: 230, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2"}] }
+  - { index: 22, label: "A3",    gpio: 17, x: 360, y: 268, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC3"}] }
+  - { index: 23, label: "A4",    gpio: 18, x: 360, y: 306, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC4"}, {type: "i2c-sda"}] }
+  - { index: 24, label: "A5",    gpio: 19, x: 360, y: 344, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC5"}, {type: "i2c-scl"}] }
+  - { index: 25, label: "A6",    gpio: null, x: 360, y: 382, side: right, kind: analog,
+      functions: [{type: adc, channel: "ADC6"}],
+      warnings: ["アナログ入力専用"] }
+  - { index: 26, label: "A7",    gpio: null, x: 360, y: 420, side: right, kind: analog,
+      functions: [{type: adc, channel: "ADC7"}],
+      warnings: ["アナログ入力専用"] }
+  - { index: 27, label: "5V",    gpio: null, x: 360, y: 458, side: right, kind: power }
+  - { index: 28, label: "RST",   gpio: null, x: 360, y: 496, side: right, kind: reset }
+  - { index: 29, label: "GND",   gpio: null, x: 360, y: 534, side: right, kind: ground }
+  - { index: 30, label: "VIN",   gpio: null, x: 360, y: 572, side: right, kind: power,
+      warnings: ["7-12V 推奨"] }
+datasheets:
+  - title: ATmega328P Datasheet
+    url: https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf
+    bundled: false
+    language: en
+references:
+  - title: Arduino Nano (公式 hardware)
+    url: https://docs.arduino.cc/hardware/nano
+    language: en
+  - title: Arduino Language Reference
+    url: https://docs.arduino.cc/language-reference/
+    language: en
+snippets:
+  - arduino-i2c-scan

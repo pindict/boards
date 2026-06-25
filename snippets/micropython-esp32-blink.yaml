@@ -1,0 +1,18 @@
+schema_version: 1
+id: micropython-esp32-blink
+title: LED 点滅 (MicroPython / ESP32)
+language: micropython
+summary: GPIO2 の LED を 500ms 間隔で点滅させる Hello-world
+boards: [esp32-devkitc-v4]
+tags: [blink, gpio, hello-world]
+body: |
+  from machine import Pin
+  from time import sleep
+
+  led = Pin(2, Pin.OUT)
+  while True:
+      led.value(not led.value())
+      sleep(0.5)
+explanation: |
+  ESP32-DevKitC では GPIO2 にオンボード LED が接続されている。
+  外部 LED を使う場合は 220Ω 〜 470Ω の電流制限抵抗を入れる。

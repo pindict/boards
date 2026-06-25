@@ -1,0 +1,30 @@
+schema_version: 1
+id: bme280
+name: BME280 温湿度・気圧センサ
+aliases: [Bosch BME280]
+category: env
+manufacturer: Bosch Sensortec
+interfaces: [i2c, spi]
+voltage:
+  min: 1.71
+  max: 3.6
+i2c:
+  default_address: "0x76"
+  alt_addresses: ["0x77"]
+wiring:
+  - { module_pin: VCC, purpose: 電源, typical_target: "3V3" }
+  - { module_pin: GND, purpose: GND,  typical_target: "GND" }
+  - { module_pin: SDA, purpose: I2C データ, typical_target: "GPIO21 (ESP32) / A4 (Uno) / GPIO2 (RPi)" }
+  - { module_pin: SCL, purpose: I2C クロック, typical_target: "GPIO22 (ESP32) / A5 (Uno) / GPIO3 (RPi)" }
+  - { module_pin: SDO, purpose: アドレス選択, typical_target: "GND=0x76, VCC=0x77" }
+tags: [temperature, humidity, pressure, popular]
+recipes:
+  - arduino-bme280-basic
+  - micropython-bme280-basic
+datasheets:
+  - title: BME280 Datasheet
+    url: https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf
+    bundled: false
+notes: |
+  Aliexpress 系互換モジュールは I2C アドレスが 0x76 / 0x77 で個体差あり。
+  3.3V センサだが多くのモジュールにはレギュレータが乗っており 5V トレラント。

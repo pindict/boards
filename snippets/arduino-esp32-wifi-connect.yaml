@@ -1,0 +1,35 @@
+schema_version: 1
+id: arduino-esp32-wifi-connect
+title: WiFi 接続 (ESP32)
+language: arduino-cpp
+summary: ESP32 を Wi-Fi STA モードで AP に接続し IP を表示する基本コード
+boards: [esp32-devkitc-v4, esp32-s3-devkitc-1, esp32-c3-devkitm-1, seeed-xiao-esp32c3, esp8266-nodemcu-v3]
+tags: [wifi, network, must-have]
+body: |
+  #include <WiFi.h>
+
+  const char* SSID = "your-ssid";
+  const char* PASS = "your-password";
+
+  void setup() {
+    Serial.begin(115200);
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(SSID, PASS);
+
+    Serial.print("Connecting");
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      Serial.print(".");
+    }
+    Serial.println();
+    Serial.print("IP: ");
+    Serial.println(WiFi.localIP());
+  }
+
+  void loop() {
+    delay(1000);
+  }
+explanation: |
+  ESP8266 では `#include <ESP8266WiFi.h>` に置換。
+  接続に時間がかかる場合は `WiFi.setAutoReconnect(true)` を設定すると安定する。
+  本番では SSID/PASS を別ファイル (config.h) か NVS に保管する。

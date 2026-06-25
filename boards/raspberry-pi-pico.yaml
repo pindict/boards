@@ -1,0 +1,103 @@
+schema_version: 1
+id: raspberry-pi-pico
+name: Raspberry Pi Pico
+aliases: [Pico, RP2040 Pico]
+manufacturer: Raspberry Pi
+family: raspberry-pi
+mcu:
+  chip: RP2040
+  core: ARM Cortex-M0+ dual-core
+  clock_mhz: 133
+  flash_kb: 2048
+  sram_kb: 264
+voltage:
+  logic: 3.3
+  input_min: 1.8
+  input_max: 5.5
+pinout:
+  svg: ""
+  viewbox: { w: 400, h: 880 }
+tags: [popular, beginner, micropython]
+notes: |
+  RP2040 のリファレンスボード (Wi-Fi なし)。全 GPIO で PWM 可能。
+  ADC 3ch (GP26/27/28) と内部温度センサ (ADC4)。
+pins:
+  - { index: 1,  label: "GP0",  gpio: 0,  x: 40, y: 40,  side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART0"}, {type: "i2c-sda", channel: "I2C0"}, {type: "spi-rx", channel: "SPI0"}, {type: pwm}] }
+  - { index: 2,  label: "GP1",  gpio: 1,  x: 40, y: 78,  side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART0"}, {type: "i2c-scl", channel: "I2C0"}, {type: "spi-cs", channel: "SPI0"}, {type: pwm}] }
+  - { index: 3,  label: "GND",  gpio: null, x: 40, y: 116, side: left, kind: ground }
+  - { index: 4,  label: "GP2",  gpio: 2,  x: 40, y: 154, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-sda", channel: "I2C1"}, {type: "spi-sck", channel: "SPI0"}, {type: pwm}] }
+  - { index: 5,  label: "GP3",  gpio: 3,  x: 40, y: 192, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C1"}, {type: "spi-tx", channel: "SPI0"}, {type: pwm}] }
+  - { index: 6,  label: "GP4",  gpio: 4,  x: 40, y: 230, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART1"}, {type: "i2c-sda", channel: "I2C0"}, {type: pwm}] }
+  - { index: 7,  label: "GP5",  gpio: 5,  x: 40, y: 268, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART1"}, {type: "i2c-scl", channel: "I2C0"}, {type: pwm}] }
+  - { index: 8,  label: "GND",  gpio: null, x: 40, y: 306, side: left, kind: ground }
+  - { index: 9,  label: "GP6",  gpio: 6,  x: 40, y: 344, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-sda", channel: "I2C1"}, {type: pwm}] }
+  - { index: 10, label: "GP7",  gpio: 7,  x: 40, y: 382, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C1"}, {type: pwm}] }
+  - { index: 11, label: "GP8",  gpio: 8,  x: 40, y: 420, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART1"}, {type: "spi-rx", channel: "SPI1"}, {type: pwm}] }
+  - { index: 12, label: "GP9",  gpio: 9,  x: 40, y: 458, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART1"}, {type: "spi-cs", channel: "SPI1"}, {type: pwm}] }
+  - { index: 13, label: "GND",  gpio: null, x: 40, y: 496, side: left, kind: ground }
+  - { index: 14, label: "GP10", gpio: 10, x: 40, y: 534, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-sck", channel: "SPI1"}, {type: pwm}] }
+  - { index: 15, label: "GP11", gpio: 11, x: 40, y: 572, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-tx", channel: "SPI1"}, {type: pwm}] }
+  - { index: 16, label: "GP12", gpio: 12, x: 40, y: 610, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART0"}, {type: pwm}] }
+  - { index: 17, label: "GP13", gpio: 13, x: 40, y: 648, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART0"}, {type: pwm}] }
+  - { index: 18, label: "GND",  gpio: null, x: 40, y: 686, side: left, kind: ground }
+  - { index: 19, label: "GP14", gpio: 14, x: 40, y: 724, side: left, kind: digital,
+      functions: [{type: gpio}, {type: pwm}] }
+  - { index: 20, label: "GP15", gpio: 15, x: 40, y: 762, side: left, kind: digital,
+      functions: [{type: gpio}, {type: pwm}] }
+  - { index: 21, label: "VBUS", gpio: null, x: 360, y: 40,  side: right, kind: power }
+  - { index: 22, label: "VSYS", gpio: null, x: 360, y: 78,  side: right, kind: power }
+  - { index: 23, label: "GND",  gpio: null, x: 360, y: 116, side: right, kind: ground }
+  - { index: 24, label: "3V3_EN", gpio: null, x: 360, y: 154, side: right, kind: reset }
+  - { index: 25, label: "3V3",  gpio: null, x: 360, y: 192, side: right, kind: power }
+  - { index: 26, label: "ADC_VREF", gpio: null, x: 360, y: 230, side: right, kind: analog }
+  - { index: 27, label: "GP28", gpio: 28, x: 360, y: 268, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2"}, {type: pwm}] }
+  - { index: 28, label: "AGND", gpio: null, x: 360, y: 306, side: right, kind: ground }
+  - { index: 29, label: "GP27", gpio: 27, x: 360, y: 344, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1"}, {type: "i2c-scl", channel: "I2C1"}, {type: pwm}] }
+  - { index: 30, label: "GP26", gpio: 26, x: 360, y: 382, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC0"}, {type: "i2c-sda", channel: "I2C1"}, {type: pwm}] }
+  - { index: 31, label: "RUN",  gpio: null, x: 360, y: 420, side: right, kind: reset }
+  - { index: 32, label: "GP22", gpio: 22, x: 360, y: 458, side: right, kind: digital,
+      functions: [{type: gpio}, {type: pwm}] }
+  - { index: 33, label: "GND",  gpio: null, x: 360, y: 496, side: right, kind: ground }
+  - { index: 34, label: "GP21", gpio: 21, x: 360, y: 534, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C0"}, {type: pwm}] }
+  - { index: 35, label: "GP20", gpio: 20, x: 360, y: 572, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-sda", channel: "I2C0"}, {type: pwm}] }
+  - { index: 36, label: "GP19", gpio: 19, x: 360, y: 610, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-tx", channel: "SPI0"}, {type: pwm}] }
+  - { index: 37, label: "GP18", gpio: 18, x: 360, y: 648, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-sck", channel: "SPI0"}, {type: pwm}] }
+  - { index: 38, label: "GND",  gpio: null, x: 360, y: 686, side: right, kind: ground }
+  - { index: 39, label: "GP17", gpio: 17, x: 360, y: 724, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-cs", channel: "SPI0"}, {type: "uart-rx", channel: "UART0"}, {type: pwm}] }
+  - { index: 40, label: "GP16", gpio: 16, x: 360, y: 762, side: right, kind: digital,
+      functions: [{type: gpio}, {type: "spi-rx", channel: "SPI0"}, {type: "uart-tx", channel: "UART0"}, {type: pwm}] }
+datasheets:
+  - title: Raspberry Pi Pico Datasheet
+    url: https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf
+    bundled: false
+    language: en
+references:
+  - title: Pico C/C++ SDK ドキュメント
+    url: https://www.raspberrypi.com/documentation/microcontrollers/c_sdk.html
+    language: en
+  - title: MicroPython for Pico
+    url: https://docs.micropython.org/en/latest/rp2/quickref.html
+    language: en
+snippets: []

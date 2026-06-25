@@ -1,0 +1,121 @@
+schema_version: 1
+id: stm32-blue-pill
+name: STM32 Blue Pill (F103C8T6)
+aliases: [Blue Pill, STM32F103]
+manufacturer: WeAct / clones
+family: stm32
+mcu:
+  chip: STM32F103C8T6
+  core: ARM Cortex-M3
+  clock_mhz: 72
+  flash_kb: 64
+  sram_kb: 20
+voltage:
+  logic: 3.3
+  input_min: 3.3
+  input_max: 5.0
+pinout:
+  svg: ""
+  viewbox: { w: 400, h: 880 }
+tags: [arm, cortex-m, classic, low-cost]
+notes: |
+  互換 USB Mini-B、書込みは ST-Link/V2 or DFU。PB12/13/14/15 は SPI2 共用。
+  PA9/10 = USART1 (USB-Serial 変換に接続する場合あり)。PC13 = オンボード LED。
+pins:
+  # Left header (1-20): PB11-PB0, PA15-PA0 selection
+  - { index: 1,  label: "PB12", gpio: null, x: 40, y: 40,  side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-cs", channel: "SPI2"}] }
+  - { index: 2,  label: "PB13", gpio: null, x: 40, y: 78,  side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-sck", channel: "SPI2"}] }
+  - { index: 3,  label: "PB14", gpio: null, x: 40, y: 116, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-miso", channel: "SPI2"}] }
+  - { index: 4,  label: "PB15", gpio: null, x: 40, y: 154, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-mosi", channel: "SPI2"}] }
+  - { index: 5,  label: "PA8",  gpio: null, x: 40, y: 192, side: left, kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "TIM1_CH1"}] }
+  - { index: 6,  label: "PA9",  gpio: null, x: 40, y: 230, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-tx", channel: "USART1"}] }
+  - { index: 7,  label: "PA10", gpio: null, x: 40, y: 268, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "uart-rx", channel: "USART1"}] }
+  - { index: 8,  label: "PA11", gpio: null, x: 40, y: 306, side: left, kind: digital,
+      functions: [{type: "usb-d-"}],
+      warnings: ["USB D-"] }
+  - { index: 9,  label: "PA12", gpio: null, x: 40, y: 344, side: left, kind: digital,
+      functions: [{type: "usb-d+"}],
+      warnings: ["USB D+"] }
+  - { index: 10, label: "PA15", gpio: null, x: 40, y: 382, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "jtag-tdi"}] }
+  - { index: 11, label: "PB3",  gpio: null, x: 40, y: 420, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "jtag-tdo"}, {type: "spi-sck", channel: "SPI1"}] }
+  - { index: 12, label: "PB4",  gpio: null, x: 40, y: 458, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-miso", channel: "SPI1"}] }
+  - { index: 13, label: "PB5",  gpio: null, x: 40, y: 496, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "spi-mosi", channel: "SPI1"}] }
+  - { index: 14, label: "PB6",  gpio: null, x: 40, y: 534, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C1"}, {type: pwm, channel: "TIM4_CH1"}] }
+  - { index: 15, label: "PB7",  gpio: null, x: 40, y: 572, side: left, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-sda", channel: "I2C1"}] }
+  - { index: 16, label: "PB8",  gpio: null, x: 40, y: 610, side: left, kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "TIM4_CH3"}] }
+  - { index: 17, label: "PB9",  gpio: null, x: 40, y: 648, side: left, kind: digital,
+      functions: [{type: gpio}, {type: pwm, channel: "TIM4_CH4"}] }
+  - { index: 18, label: "5V",   gpio: null, x: 40, y: 686, side: left, kind: power }
+  - { index: 19, label: "GND",  gpio: null, x: 40, y: 724, side: left, kind: ground }
+  - { index: 20, label: "3V3",  gpio: null, x: 40, y: 762, side: left, kind: power }
+  # Right header
+  - { index: 21, label: "PB11", gpio: null, x: 360, y: 40,  side: right, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-sda", channel: "I2C2"}] }
+  - { index: 22, label: "PB10", gpio: null, x: 360, y: 78,  side: right, kind: digital,
+      functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C2"}] }
+  - { index: 23, label: "PB1",  gpio: null, x: 360, y: 116, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN9"}, {type: pwm, channel: "TIM3_CH4"}] }
+  - { index: 24, label: "PB0",  gpio: null, x: 360, y: 154, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN8"}, {type: pwm, channel: "TIM3_CH3"}] }
+  - { index: 25, label: "PA7",  gpio: null, x: 360, y: 192, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN7"}, {type: "spi-mosi", channel: "SPI1"}] }
+  - { index: 26, label: "PA6",  gpio: null, x: 360, y: 230, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN6"}, {type: "spi-miso", channel: "SPI1"}] }
+  - { index: 27, label: "PA5",  gpio: null, x: 360, y: 268, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN5"}, {type: "spi-sck", channel: "SPI1"}] }
+  - { index: 28, label: "PA4",  gpio: null, x: 360, y: 306, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN4"}, {type: "spi-cs", channel: "SPI1"}] }
+  - { index: 29, label: "PA3",  gpio: null, x: 360, y: 344, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN3"}, {type: "uart-rx", channel: "USART2"}] }
+  - { index: 30, label: "PA2",  gpio: null, x: 360, y: 382, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN2"}, {type: "uart-tx", channel: "USART2"}] }
+  - { index: 31, label: "PA1",  gpio: null, x: 360, y: 420, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN1"}] }
+  - { index: 32, label: "PA0",  gpio: null, x: 360, y: 458, side: right, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN0"}, {type: "wake-up"}] }
+  - { index: 33, label: "PC15", gpio: null, x: 360, y: 496, side: right, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["32kHz Crystal と共有 (デフォルト)"] }
+  - { index: 34, label: "PC14", gpio: null, x: 360, y: 534, side: right, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["32kHz Crystal と共有"] }
+  - { index: 35, label: "PC13", gpio: null, x: 360, y: 572, side: right, kind: digital,
+      functions: [{type: gpio}],
+      warnings: ["LED_BUILTIN (active LOW)", "ドライブ電流 3mA"] }
+  - { index: 36, label: "VBAT", gpio: null, x: 360, y: 610, side: right, kind: power,
+      warnings: ["RTC バックアップ用バッテリ"] }
+  - { index: 37, label: "RST",  gpio: null, x: 360, y: 648, side: right, kind: reset }
+  - { index: 38, label: "3V3",  gpio: null, x: 360, y: 686, side: right, kind: power }
+  - { index: 39, label: "GND",  gpio: null, x: 360, y: 724, side: right, kind: ground }
+  - { index: 40, label: "GND",  gpio: null, x: 360, y: 762, side: right, kind: ground }
+datasheets:
+  - title: STM32F103C8 Datasheet
+    url: https://www.st.com/resource/en/datasheet/cd00161566.pdf
+    bundled: false
+    language: en
+  - title: STM32F103 Reference Manual
+    url: https://www.st.com/resource/en/reference_manual/rm0008-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
+    bundled: false
+    language: en
+references:
+  - title: STM32duino — Blue Pill
+    url: https://github.com/stm32duino/Arduino_Core_STM32
+    language: en
+  - title: STM32CubeIDE
+    url: https://www.st.com/en/development-tools/stm32cubeide.html
+    language: en
+snippets: []

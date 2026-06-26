@@ -44,7 +44,7 @@ pins:
   - { index: 11, label: "GPIO17", gpio: 17,   x: 60,  y: 230, side: left,  kind: digital,
       functions: [{type: gpio}] }
   - { index: 12, label: "GPIO18", gpio: 18,   x: 160, y: 230, side: right, kind: digital,
-      functions: [{type: gpio}, {type: pwm, channel: "PWM0"}, {type: i2s, channel: "PCM_CLK"}] }
+      functions: [{type: gpio}, {type: pwm, channel: "PWM0"}, {type: pcm, channel: "PCM_CLK"}] }
   # Row 7
   - { index: 13, label: "GPIO27", gpio: 27,   x: 60,  y: 268, side: left,  kind: digital,
       functions: [{type: gpio}] }
@@ -60,11 +60,11 @@ pins:
       functions: [{type: gpio}] }
   # Row 10
   - { index: 19, label: "GPIO10", gpio: 10,   x: 60,  y: 382, side: left,  kind: digital,
-      functions: [{type: gpio}, {type: "spi-mosi", channel: "SPI0"}] }
+      functions: [{type: gpio}, {type: "spi-tx", channel: "SPI0"}] }
   - { index: 20, label: "GND",    gpio: null, x: 160, y: 382, side: right, kind: ground }
   # Row 11
   - { index: 21, label: "GPIO9",  gpio: 9,    x: 60,  y: 420, side: left,  kind: digital,
-      functions: [{type: gpio}, {type: "spi-miso", channel: "SPI0"}] }
+      functions: [{type: gpio}, {type: "spi-rx", channel: "SPI0"}] }
   - { index: 22, label: "GPIO25", gpio: 25,   x: 160, y: 420, side: right, kind: digital,
       functions: [{type: gpio}] }
   # Row 12
@@ -98,18 +98,18 @@ pins:
   - { index: 34, label: "GND",    gpio: null, x: 160, y: 648, side: right, kind: ground }
   # Row 18
   - { index: 35, label: "GPIO19", gpio: 19,   x: 60,  y: 686, side: left,  kind: digital,
-      functions: [{type: gpio}, {type: pwm, channel: "PWM1"}, {type: i2s, channel: "PCM_FS"}] }
+      functions: [{type: gpio}, {type: pwm, channel: "PWM1"}, {type: pcm, channel: "PCM_FS"}] }
   - { index: 36, label: "GPIO16", gpio: 16,   x: 160, y: 686, side: right, kind: digital,
       functions: [{type: gpio}] }
   # Row 19
   - { index: 37, label: "GPIO26", gpio: 26,   x: 60,  y: 724, side: left,  kind: digital,
       functions: [{type: gpio}] }
   - { index: 38, label: "GPIO20", gpio: 20,   x: 160, y: 724, side: right, kind: digital,
-      functions: [{type: gpio}, {type: i2s, channel: "PCM_DIN"}] }
+      functions: [{type: gpio}, {type: pcm, channel: "PCM_DIN"}] }
   # Row 20
   - { index: 39, label: "GND",    gpio: null, x: 60,  y: 762, side: left,  kind: ground }
   - { index: 40, label: "GPIO21", gpio: 21,   x: 160, y: 762, side: right, kind: digital,
-      functions: [{type: gpio}, {type: i2s, channel: "PCM_DOUT"}] }
+      functions: [{type: gpio}, {type: pcm, channel: "PCM_DOUT"}] }
 datasheets:
   - title: BCM2711 ARM Peripherals
     url: https://datasheets.raspberrypi.com/bcm2711/bcm2711-peripherals.pdf

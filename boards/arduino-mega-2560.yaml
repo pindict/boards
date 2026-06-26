@@ -79,8 +79,8 @@ pins:
   # Right (50-69): D48-D53, comms, PWM, D0-D13
   - { index: 50, label: "D48", gpio: 48, x: 720, y: 40,  side: right, kind: digital, functions: [{type: gpio}] }
   - { index: 51, label: "D49", gpio: 49, x: 720, y: 80,  side: right, kind: digital, functions: [{type: gpio}] }
-  - { index: 52, label: "D50/MISO", gpio: 50, x: 720, y: 120, side: right, kind: digital, functions: [{type: gpio}, {type: "spi-miso"}] }
-  - { index: 53, label: "D51/MOSI", gpio: 51, x: 720, y: 160, side: right, kind: digital, functions: [{type: gpio}, {type: "spi-mosi"}] }
+  - { index: 52, label: "D50/MISO", gpio: 50, x: 720, y: 120, side: right, kind: digital, functions: [{type: gpio}, {type: "spi-rx"}] }
+  - { index: 53, label: "D51/MOSI", gpio: 51, x: 720, y: 160, side: right, kind: digital, functions: [{type: gpio}, {type: "spi-tx"}] }
   - { index: 54, label: "D52/SCK",  gpio: 52, x: 720, y: 200, side: right, kind: digital, functions: [{type: gpio}, {type: "spi-sck"}] }
   - { index: 55, label: "D53/SS",   gpio: 53, x: 720, y: 240, side: right, kind: digital, functions: [{type: gpio}, {type: "spi-cs"}] }
   - { index: 56, label: "D13/LED", gpio: 13, x: 720, y: 300, side: right, kind: digital, functions: [{type: gpio}, {type: pwm}], warnings: ["LED_BUILTIN"] }
@@ -101,6 +101,10 @@ pins:
   - { index: 71, label: "D15/RX3", gpio: 15, x: 720, y: 920, side: right, kind: digital, functions: [{type: gpio}, {type: "uart-rx", channel: "USART3"}] }
   - { index: 72, label: "D20/SDA", gpio: 20, x: 280, y: 600, side: right, kind: digital, functions: [{type: gpio}, {type: "i2c-sda"}] }
   - { index: 73, label: "D21/SCL", gpio: 21, x: 280, y: 640, side: right, kind: digital, functions: [{type: gpio}, {type: "i2c-scl"}] }
+  - { index: 74, label: "D16/TX2", gpio: 16, x: 280, y: 680, side: right, kind: digital, functions: [{type: gpio}, {type: "uart-tx", channel: "USART2"}] }
+  - { index: 75, label: "D17/RX2", gpio: 17, x: 280, y: 720, side: right, kind: digital, functions: [{type: gpio}, {type: "uart-rx", channel: "USART2"}] }
+  - { index: 76, label: "D18/TX1", gpio: 18, x: 280, y: 760, side: right, kind: digital, functions: [{type: gpio}, {type: "uart-tx", channel: "USART1"}, {type: "ext-int", channel: "INT3"}] }
+  - { index: 77, label: "D19/RX1", gpio: 19, x: 280, y: 800, side: right, kind: digital, functions: [{type: gpio}, {type: "uart-rx", channel: "USART1"}, {type: "ext-int", channel: "INT2"}] }
 datasheets:
   - title: ATmega2560 Datasheet
     url: https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf

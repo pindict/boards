@@ -32,16 +32,16 @@ pins:
   - { index: 9,  label: "GND",       gpio: null, x: 40, y: 200, side: left, kind: ground }
   - { index: 10, label: "GPIO15/RXD",gpio: 15,   x: 180, y: 200, side: right, kind: digital, functions: [{type: gpio}, {type: "uart-rx", channel: "UART0"}] }
   - { index: 11, label: "GPIO17",    gpio: 17,   x: 40, y: 240, side: left, kind: digital, functions: [{type: gpio}] }
-  - { index: 12, label: "GPIO18",    gpio: 18,   x: 180, y: 240, side: right, kind: digital, functions: [{type: gpio}, {type: pwm, channel: "PWM0"}, {type: "i2s-clk"}] }
+  - { index: 12, label: "GPIO18",    gpio: 18,   x: 180, y: 240, side: right, kind: digital, functions: [{type: gpio}, {type: pwm, channel: "PWM0"}, {type: pcm, channel: "PCM_CLK"}] }
   - { index: 13, label: "GPIO27",    gpio: 27,   x: 40, y: 280, side: left, kind: digital, functions: [{type: gpio}] }
   - { index: 14, label: "GND",       gpio: null, x: 180, y: 280, side: right, kind: ground }
   - { index: 15, label: "GPIO22",    gpio: 22,   x: 40, y: 320, side: left, kind: digital, functions: [{type: gpio}] }
   - { index: 16, label: "GPIO23",    gpio: 23,   x: 180, y: 320, side: right, kind: digital, functions: [{type: gpio}] }
   - { index: 17, label: "3V3",       gpio: null, x: 40, y: 360, side: left, kind: power }
   - { index: 18, label: "GPIO24",    gpio: 24,   x: 180, y: 360, side: right, kind: digital, functions: [{type: gpio}] }
-  - { index: 19, label: "GPIO10/MOSI",gpio: 10,  x: 40, y: 400, side: left, kind: digital, functions: [{type: gpio}, {type: "spi-mosi", channel: "SPI0"}] }
+  - { index: 19, label: "GPIO10/MOSI",gpio: 10,  x: 40, y: 400, side: left, kind: digital, functions: [{type: gpio}, {type: "spi-tx", channel: "SPI0"}] }
   - { index: 20, label: "GND",       gpio: null, x: 180, y: 400, side: right, kind: ground }
-  - { index: 21, label: "GPIO9/MISO",gpio: 9,    x: 40, y: 440, side: left, kind: digital, functions: [{type: gpio}, {type: "spi-miso", channel: "SPI0"}] }
+  - { index: 21, label: "GPIO9/MISO",gpio: 9,    x: 40, y: 440, side: left, kind: digital, functions: [{type: gpio}, {type: "spi-rx", channel: "SPI0"}] }
   - { index: 22, label: "GPIO25",    gpio: 25,   x: 180, y: 440, side: right, kind: digital, functions: [{type: gpio}] }
   - { index: 23, label: "GPIO11/SCK",gpio: 11,   x: 40, y: 480, side: left, kind: digital, functions: [{type: gpio}, {type: "spi-sck", channel: "SPI0"}] }
   - { index: 24, label: "GPIO8/CE0", gpio: 8,    x: 180, y: 480, side: right, kind: digital, functions: [{type: gpio}, {type: "spi-cs", channel: "SPI0_CE0"}] }
@@ -55,12 +55,12 @@ pins:
   - { index: 32, label: "GPIO12",    gpio: 12,   x: 180, y: 640, side: right, kind: digital, functions: [{type: gpio}, {type: pwm, channel: "PWM0"}] }
   - { index: 33, label: "GPIO13",    gpio: 13,   x: 40, y: 680, side: left, kind: digital, functions: [{type: gpio}, {type: pwm, channel: "PWM1"}] }
   - { index: 34, label: "GND",       gpio: null, x: 180, y: 680, side: right, kind: ground }
-  - { index: 35, label: "GPIO19",    gpio: 19,   x: 40, y: 720, side: left, kind: digital, functions: [{type: gpio}, {type: pwm, channel: "PWM1"}, {type: "i2s-fs"}] }
+  - { index: 35, label: "GPIO19",    gpio: 19,   x: 40, y: 720, side: left, kind: digital, functions: [{type: gpio}, {type: pwm, channel: "PWM1"}, {type: pcm, channel: "PCM_FS"}] }
   - { index: 36, label: "GPIO16",    gpio: 16,   x: 180, y: 720, side: right, kind: digital, functions: [{type: gpio}] }
   - { index: 37, label: "GPIO26",    gpio: 26,   x: 40, y: 760, side: left, kind: digital, functions: [{type: gpio}] }
-  - { index: 38, label: "GPIO20",    gpio: 20,   x: 180, y: 760, side: right, kind: digital, functions: [{type: gpio}, {type: "i2s-data-in"}] }
+  - { index: 38, label: "GPIO20",    gpio: 20,   x: 180, y: 760, side: right, kind: digital, functions: [{type: gpio}, {type: pcm, channel: "PCM_DIN"}] }
   - { index: 39, label: "GND",       gpio: null, x: 40, y: 800, side: left, kind: ground }
-  - { index: 40, label: "GPIO21",    gpio: 21,   x: 180, y: 800, side: right, kind: digital, functions: [{type: gpio}, {type: "i2s-data-out"}] }
+  - { index: 40, label: "GPIO21",    gpio: 21,   x: 180, y: 800, side: right, kind: digital, functions: [{type: gpio}, {type: pcm, channel: "PCM_DOUT"}] }
 datasheets:
   - title: Raspberry Pi Zero 2 W Product Brief
     url: https://datasheets.raspberrypi.com/rpizero2/raspberry-pi-zero-2-w-product-brief.pdf

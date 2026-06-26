@@ -3,7 +3,7 @@ id: esp32-c3-devkitm-1
 name: ESP32-C3-DevKitM-1
 aliases: [ESP32-C3 DevKit, ESP32-C3-MINI-1]
 manufacturer: Espressif
-family: esp32
+family: esp32c3
 mcu:
   chip: ESP32-C3 (MINI-1)
   core: RISC-V single-core
@@ -27,12 +27,12 @@ pins:
   - { index: 3,  label: "3V3",    gpio: null, x: 40, y: 116, side: left, kind: power }
   - { index: 4,  label: "GPIO4",  gpio: 4,    x: 40, y: 154, side: left, kind: analog,
       functions: [{type: gpio}, {type: adc, channel: "ADC1_CH4"}, {type: "spi-cs"}] }
-  - { index: 5,  label: "GPIO5",  gpio: 5,    x: 40, y: 192, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "spi-miso"}] }
+  - { index: 5,  label: "GPIO5",  gpio: 5,    x: 40, y: 192, side: left, kind: analog,
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH0"}, {type: "spi-rx"}] }
   - { index: 6,  label: "GPIO6",  gpio: 6,    x: 40, y: 230, side: left, kind: digital,
       functions: [{type: gpio}, {type: "spi-sck"}] }
   - { index: 7,  label: "GPIO7",  gpio: 7,    x: 40, y: 268, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "spi-mosi"}] }
+      functions: [{type: gpio}, {type: "spi-tx"}] }
   - { index: 8,  label: "GPIO8",  gpio: 8,    x: 40, y: 306, side: left, kind: digital,
       functions: [{type: gpio}, {type: strap}],
       warnings: ["strapping: ブート時HIGH"] }
@@ -42,7 +42,7 @@ pins:
   - { index: 10, label: "5V",     gpio: null, x: 40, y: 382, side: left, kind: power }
   - { index: 11, label: "GND",    gpio: null, x: 40, y: 420, side: left, kind: ground }
   - { index: 12, label: "GPIO10", gpio: 10,   x: 40, y: 458, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "uart-tx", channel: "UART1"}] }
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART1"}, {type: "spi-cs"}] }
   - { index: 13, label: "GND",    gpio: null, x: 40, y: 496, side: left, kind: ground }
   # Right header
   - { index: 14, label: "GPIO0",  gpio: 0,    x: 360, y: 40,  side: right, kind: analog,

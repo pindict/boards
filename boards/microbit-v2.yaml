@@ -42,7 +42,7 @@ pins:
       warnings: ["ボタン A と共有"] }
   - { index: 7,  label: "P6",   gpio: 37, x: 40, y: 268, side: left, kind: digital,
       functions: [{type: gpio}],
-      warnings: ["LED Col9 と共有"] }
+      warnings: ["LED Col3 と共有"] }
   - { index: 8,  label: "P7",   gpio: 11, x: 40, y: 306, side: left, kind: digital,
       functions: [{type: gpio}],
       warnings: ["LED Col4 と共有"] }
@@ -50,7 +50,7 @@ pins:
       functions: [{type: gpio}] }
   - { index: 10, label: "P9",   gpio: 9,  x: 40, y: 382, side: left, kind: digital,
       functions: [{type: gpio}],
-      warnings: ["LED Col7 と共有"] }
+      notes: "NFC アンテナ用パッドと共有" }
   - { index: 11, label: "P10",  gpio: 30, x: 40, y: 420, side: left, kind: analog,
       functions: [{type: gpio}, {type: adc, channel: "AIN6"}],
       warnings: ["LED Col5 と共有"] }
@@ -62,9 +62,9 @@ pins:
   - { index: 14, label: "P13",  gpio: 17, x: 360, y: 40,  side: right, kind: digital,
       functions: [{type: gpio}, {type: "spi-sck"}] }
   - { index: 15, label: "P14",  gpio: 1,  x: 360, y: 78,  side: right, kind: digital,
-      functions: [{type: gpio}, {type: "spi-miso"}] }
+      functions: [{type: gpio}, {type: "spi-rx"}] }
   - { index: 16, label: "P15",  gpio: 13, x: 360, y: 116, side: right, kind: digital,
-      functions: [{type: gpio}, {type: "spi-mosi"}] }
+      functions: [{type: gpio}, {type: "spi-tx"}] }
   - { index: 17, label: "P16",  gpio: 34, x: 360, y: 154, side: right, kind: digital,
       functions: [{type: gpio}] }
   - { index: 18, label: "P19",  gpio: 26, x: 360, y: 192, side: right, kind: digital,

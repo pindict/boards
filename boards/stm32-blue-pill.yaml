@@ -28,9 +28,9 @@ pins:
   - { index: 2,  label: "PB13", gpio: null, x: 40, y: 78,  side: left, kind: digital,
       functions: [{type: gpio}, {type: "spi-sck", channel: "SPI2"}] }
   - { index: 3,  label: "PB14", gpio: null, x: 40, y: 116, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "spi-miso", channel: "SPI2"}] }
+      functions: [{type: gpio}, {type: "spi-rx", channel: "SPI2"}] }
   - { index: 4,  label: "PB15", gpio: null, x: 40, y: 154, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "spi-mosi", channel: "SPI2"}] }
+      functions: [{type: gpio}, {type: "spi-tx", channel: "SPI2"}] }
   - { index: 5,  label: "PA8",  gpio: null, x: 40, y: 192, side: left, kind: digital,
       functions: [{type: gpio}, {type: pwm, channel: "TIM1_CH1"}] }
   - { index: 6,  label: "PA9",  gpio: null, x: 40, y: 230, side: left, kind: digital,
@@ -44,13 +44,13 @@ pins:
       functions: [{type: "usb-d+"}],
       warnings: ["USB D+"] }
   - { index: 10, label: "PA15", gpio: null, x: 40, y: 382, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "jtag-tdi"}] }
+      functions: [{type: gpio}, {type: "jtag-tdi"}, {type: "spi-cs", channel: "SPI1"}] }
   - { index: 11, label: "PB3",  gpio: null, x: 40, y: 420, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "jtag-tdo"}, {type: "spi-sck", channel: "SPI1"}] }
+      functions: [{type: gpio}, {type: "jtag-tdo"}, {type: "spi-sck", channel: "SPI1"}, {type: pwm, channel: "TIM2_CH2"}] }
   - { index: 12, label: "PB4",  gpio: null, x: 40, y: 458, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "spi-miso", channel: "SPI1"}] }
+      functions: [{type: gpio}, {type: "spi-rx", channel: "SPI1"}, {type: pwm, channel: "TIM3_CH1"}] }
   - { index: 13, label: "PB5",  gpio: null, x: 40, y: 496, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "spi-mosi", channel: "SPI1"}] }
+      functions: [{type: gpio}, {type: "spi-tx", channel: "SPI1"}] }
   - { index: 14, label: "PB6",  gpio: null, x: 40, y: 534, side: left, kind: digital,
       functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C1"}, {type: pwm, channel: "TIM4_CH1"}] }
   - { index: 15, label: "PB7",  gpio: null, x: 40, y: 572, side: left, kind: digital,
@@ -64,17 +64,17 @@ pins:
   - { index: 20, label: "3V3",  gpio: null, x: 40, y: 762, side: left, kind: power }
   # Right header
   - { index: 21, label: "PB11", gpio: null, x: 360, y: 40,  side: right, kind: digital,
-      functions: [{type: gpio}, {type: "i2c-sda", channel: "I2C2"}] }
+      functions: [{type: gpio}, {type: "i2c-sda", channel: "I2C2"}, {type: "uart-rx", channel: "USART3"}] }
   - { index: 22, label: "PB10", gpio: null, x: 360, y: 78,  side: right, kind: digital,
-      functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C2"}] }
+      functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C2"}, {type: "uart-tx", channel: "USART3"}] }
   - { index: 23, label: "PB1",  gpio: null, x: 360, y: 116, side: right, kind: analog,
       functions: [{type: gpio}, {type: adc, channel: "ADC1_IN9"}, {type: pwm, channel: "TIM3_CH4"}] }
   - { index: 24, label: "PB0",  gpio: null, x: 360, y: 154, side: right, kind: analog,
       functions: [{type: gpio}, {type: adc, channel: "ADC1_IN8"}, {type: pwm, channel: "TIM3_CH3"}] }
   - { index: 25, label: "PA7",  gpio: null, x: 360, y: 192, side: right, kind: analog,
-      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN7"}, {type: "spi-mosi", channel: "SPI1"}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN7"}, {type: "spi-tx", channel: "SPI1"}] }
   - { index: 26, label: "PA6",  gpio: null, x: 360, y: 230, side: right, kind: analog,
-      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN6"}, {type: "spi-miso", channel: "SPI1"}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_IN6"}, {type: "spi-rx", channel: "SPI1"}] }
   - { index: 27, label: "PA5",  gpio: null, x: 360, y: 268, side: right, kind: analog,
       functions: [{type: gpio}, {type: adc, channel: "ADC1_IN5"}, {type: "spi-sck", channel: "SPI1"}] }
   - { index: 28, label: "PA4",  gpio: null, x: 360, y: 306, side: right, kind: analog,

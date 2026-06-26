@@ -43,19 +43,19 @@ pins:
   - { index: 8,  label: "GPIO33", gpio: 33,   x: 40,  y: 306, side: left,  kind: digital,
       functions: [{type: gpio}, {type: adc, channel: "ADC1_CH5"}, {type: touch, channel: "T8"}] }
   - { index: 9,  label: "GPIO25", gpio: 25,   x: 40,  y: 344, side: left,  kind: digital,
-      functions: [{type: gpio}, {type: dac, channel: "DAC1"}, {type: adc, channel: "ADC2_CH8"}] }
+      functions: [{type: gpio}, {type: dac, channel: "DAC1"}, {type: adc, channel: "ADC2_CH8"}, {type: pwm}] }
   - { index: 10, label: "GPIO26", gpio: 26,   x: 40,  y: 382, side: left,  kind: digital,
-      functions: [{type: gpio}, {type: dac, channel: "DAC2"}, {type: adc, channel: "ADC2_CH9"}] }
+      functions: [{type: gpio}, {type: dac, channel: "DAC2"}, {type: adc, channel: "ADC2_CH9"}, {type: pwm}] }
   - { index: 11, label: "GPIO27", gpio: 27,   x: 40,  y: 420, side: left,  kind: digital,
       functions: [{type: gpio}, {type: adc, channel: "ADC2_CH7"}, {type: touch, channel: "T7"}, {type: pwm}] }
   - { index: 12, label: "GPIO14", gpio: 14,   x: 40,  y: 458, side: left,  kind: digital,
       functions: [{type: gpio}, {type: adc, channel: "ADC2_CH6"}, {type: touch, channel: "T6"}, {type: "spi-sck", channel: "HSPI"}, {type: pwm}] }
   - { index: 13, label: "GPIO12", gpio: 12,   x: 40,  y: 496, side: left,  kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH5"}, {type: touch, channel: "T5"}, {type: "spi-miso", channel: "HSPI"}, {type: strap}],
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH5"}, {type: touch, channel: "T5"}, {type: "spi-rx", channel: "HSPI"}, {type: strap}],
       warnings: ["strapping pin: ブート時LOW必須"] }
   - { index: 14, label: "GND",    gpio: null, x: 40,  y: 534, side: left,  kind: ground }
   - { index: 15, label: "GPIO13", gpio: 13,   x: 40,  y: 572, side: left,  kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH4"}, {type: touch, channel: "T4"}, {type: "spi-mosi", channel: "HSPI"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH4"}, {type: touch, channel: "T4"}, {type: "spi-tx", channel: "HSPI"}, {type: pwm}] }
   - { index: 16, label: "SD2",    gpio: 9,    x: 40,  y: 610, side: left,  kind: digital,
       functions: [{type: gpio, note: "flash"}],
       warnings: ["内蔵フラッシュ用 - 使用不可"] }
@@ -69,7 +69,7 @@ pins:
   # ── Right header (20-38, top→bottom) ────────────────────────────────
   - { index: 20, label: "GND",    gpio: null, x: 360, y: 40,  side: right, kind: ground }
   - { index: 21, label: "GPIO23", gpio: 23,   x: 360, y: 78,  side: right, kind: digital,
-      functions: [{type: gpio}, {type: "spi-mosi", channel: "VSPI"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "spi-tx", channel: "VSPI"}, {type: pwm}] }
   - { index: 22, label: "GPIO22", gpio: 22,   x: 360, y: 116, side: right, kind: digital,
       functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C0"}, {type: pwm}] }
   - { index: 23, label: "TXD0",   gpio: 1,    x: 360, y: 154, side: right, kind: digital,
@@ -82,7 +82,7 @@ pins:
       functions: [{type: gpio}, {type: "i2c-sda", channel: "I2C0"}, {type: pwm}] }
   - { index: 26, label: "GND",    gpio: null, x: 360, y: 268, side: right, kind: ground }
   - { index: 27, label: "GPIO19", gpio: 19,   x: 360, y: 306, side: right, kind: digital,
-      functions: [{type: gpio}, {type: "spi-miso", channel: "VSPI"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "spi-rx", channel: "VSPI"}, {type: pwm}] }
   - { index: 28, label: "GPIO18", gpio: 18,   x: 360, y: 344, side: right, kind: digital,
       functions: [{type: gpio}, {type: "spi-sck", channel: "VSPI"}, {type: pwm}] }
   - { index: 29, label: "GPIO5",  gpio: 5,    x: 360, y: 382, side: right, kind: digital,
@@ -95,13 +95,13 @@ pins:
   - { index: 32, label: "GPIO4",  gpio: 4,    x: 360, y: 496, side: right, kind: digital,
       functions: [{type: gpio}, {type: adc, channel: "ADC2_CH0"}, {type: touch, channel: "T0"}, {type: pwm}] }
   - { index: 33, label: "GPIO0",  gpio: 0,    x: 360, y: 534, side: right, kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH1"}, {type: touch, channel: "T1"}, {type: strap}],
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH1"}, {type: touch, channel: "T1"}, {type: pwm}, {type: strap}],
       warnings: ["strapping pin: ブートモード", "BOOTボタンと接続"] }
   - { index: 34, label: "GPIO2",  gpio: 2,    x: 360, y: 572, side: right, kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH2"}, {type: touch, channel: "T2"}, {type: strap}],
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH2"}, {type: touch, channel: "T2"}, {type: pwm}, {type: strap}],
       warnings: ["strapping pin", "オンボードLED"] }
   - { index: 35, label: "GPIO15", gpio: 15,   x: 360, y: 610, side: right, kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH3"}, {type: touch, channel: "T3"}, {type: "spi-cs", channel: "HSPI"}, {type: strap}],
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH3"}, {type: touch, channel: "T3"}, {type: "spi-cs", channel: "HSPI"}, {type: pwm}, {type: strap}],
       warnings: ["strapping pin: ブート時HIGH"] }
   - { index: 36, label: "SD1",    gpio: 8,    x: 360, y: 648, side: right, kind: digital,
       functions: [{type: gpio, note: "flash"}],

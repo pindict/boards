@@ -3,7 +3,7 @@ id: esp8266-nodemcu-v3
 name: NodeMCU v3 (ESP8266)
 aliases: [NodeMCU, ESP-12E DevKit, ESP8266 DevKit]
 manufacturer: Ai-Thinker / Lolin
-family: esp32
+family: esp8266
 mcu:
   chip: ESP8266EX (ESP-12E)
   core: Tensilica L106 32-bit
@@ -75,9 +75,9 @@ pins:
   - { index: 23, label: "D5",   gpio: 14,   x: 360, y: 306, side: right, kind: digital,
       functions: [{type: gpio}, {type: "spi-sck"}, {type: pwm}] }
   - { index: 24, label: "D6",   gpio: 12,   x: 360, y: 344, side: right, kind: digital,
-      functions: [{type: gpio}, {type: "spi-miso"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "spi-rx"}, {type: pwm}] }
   - { index: 25, label: "D7",   gpio: 13,   x: 360, y: 382, side: right, kind: digital,
-      functions: [{type: gpio}, {type: "spi-mosi"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "spi-tx"}, {type: pwm}] }
   - { index: 26, label: "D8",   gpio: 15,   x: 360, y: 420, side: right, kind: digital,
       functions: [{type: gpio}, {type: "spi-cs"}, {type: pwm}, {type: strap}],
       warnings: ["strapping: ブート時LOW必須"] }

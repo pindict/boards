@@ -46,14 +46,14 @@ pins:
   - { index: 11, label: "D10/SS",  gpio: 10, x: 400, y: 50, side: top, kind: digital,
       functions: [{type: gpio}, {type: pwm, channel: "OC1B"}, {type: "spi-cs"}] }
   - { index: 12, label: "D11/MOSI",gpio: 11, x: 430, y: 50, side: top, kind: digital,
-      functions: [{type: gpio}, {type: pwm, channel: "OC2A"}, {type: "spi-mosi"}] }
+      functions: [{type: gpio}, {type: pwm, channel: "OC2A"}, {type: "spi-tx"}] }
   - { index: 13, label: "D12/MISO",gpio: 12, x: 460, y: 50, side: top, kind: digital,
-      functions: [{type: gpio}, {type: "spi-miso"}] }
+      functions: [{type: gpio}, {type: "spi-rx"}] }
   - { index: 14, label: "D13/SCK", gpio: 13, x: 490, y: 50, side: top, kind: digital,
       functions: [{type: gpio}, {type: "spi-sck"}], notes: "LED 内蔵" }
   - { index: 15, label: "GND",     gpio: null, x: 520, y: 50, side: top, kind: ground }
-  - { index: 16, label: "AREF",    gpio: null, x: 550, y: 50, side: top, kind: analog,
-      functions: [{type: gpio, note: "ADC reference"}] }
+  - { index: 16, label: "AREF",    gpio: null, x: 550, y: 50, side: top, kind: power,
+      notes: "ADC reference" }
   - { index: 17, label: "SDA",     gpio: 18, x: 580, y: 50, side: top, kind: digital,
       functions: [{type: gpio}, {type: "i2c-sda"}], notes: "A4 と同一" }
   - { index: 18, label: "SCL",     gpio: 19, x: 610, y: 50, side: top, kind: digital,

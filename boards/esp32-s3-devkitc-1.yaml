@@ -43,25 +43,25 @@ pins:
   - { index: 11, label: "GPIO18", gpio: 18,   x: 40, y: 420, side: left, kind: digital,
       functions: [{type: gpio}, {type: adc, channel: "ADC2_CH7"}] }
   - { index: 12, label: "GPIO8",  gpio: 8,    x: 40, y: 458, side: left, kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH7"}, {type: "i2c-sda"}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH7"}, {type: touch, channel: "T8"}, {type: "i2c-sda"}] }
   - { index: 13, label: "GPIO3",  gpio: 3,    x: 40, y: 496, side: left, kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH2"}, {type: strap}],
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH2"}, {type: touch, channel: "T3"}, {type: strap}],
       warnings: ["strapping pin"] }
   - { index: 14, label: "GPIO46", gpio: 46,   x: 40, y: 534, side: left, kind: digital,
       functions: [{type: gpio}, {type: strap}],
       warnings: ["strapping pin: ブート時LOW推奨"] }
   - { index: 15, label: "GPIO9",  gpio: 9,    x: 40, y: 572, side: left, kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH8"}, {type: "i2c-scl"}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH8"}, {type: touch, channel: "T9"}, {type: "i2c-scl"}] }
   - { index: 16, label: "GPIO10", gpio: 10,   x: 40, y: 610, side: left, kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH9"}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH9"}, {type: touch, channel: "T10"}] }
   - { index: 17, label: "GPIO11", gpio: 11,   x: 40, y: 648, side: left, kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH0"}, {type: "spi-mosi"}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH0"}, {type: touch, channel: "T11"}, {type: "spi-tx"}] }
   - { index: 18, label: "GPIO12", gpio: 12,   x: 40, y: 686, side: left, kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH1"}, {type: "spi-sck"}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH1"}, {type: touch, channel: "T12"}, {type: "spi-sck"}] }
   - { index: 19, label: "GPIO13", gpio: 13,   x: 40, y: 724, side: left, kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH2"}, {type: "spi-miso"}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH2"}, {type: touch, channel: "T13"}, {type: "spi-rx"}] }
   - { index: 20, label: "GPIO14", gpio: 14,   x: 40, y: 762, side: left, kind: digital,
-      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH3"}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH3"}, {type: touch, channel: "T14"}] }
   - { index: 21, label: "5V",     gpio: null, x: 40, y: 800, side: left, kind: power }
   - { index: 22, label: "GND",    gpio: null, x: 40, y: 838, side: left, kind: ground }
   # Right header (23-44)

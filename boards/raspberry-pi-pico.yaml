@@ -41,23 +41,23 @@ pins:
   - { index: 10, label: "GP7",  gpio: 7,  x: 40, y: 382, side: left, kind: digital,
       functions: [{type: gpio}, {type: "i2c-scl", channel: "I2C1"}, {type: pwm}] }
   - { index: 11, label: "GP8",  gpio: 8,  x: 40, y: 420, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "uart-tx", channel: "UART1"}, {type: "spi-rx", channel: "SPI1"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART1"}, {type: "spi-rx", channel: "SPI1"}, {type: "i2c-sda", channel: "I2C0"}, {type: pwm}] }
   - { index: 12, label: "GP9",  gpio: 9,  x: 40, y: 458, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "uart-rx", channel: "UART1"}, {type: "spi-cs", channel: "SPI1"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART1"}, {type: "spi-cs", channel: "SPI1"}, {type: "i2c-scl", channel: "I2C0"}, {type: pwm}] }
   - { index: 13, label: "GND",  gpio: null, x: 40, y: 496, side: left, kind: ground }
   - { index: 14, label: "GP10", gpio: 10, x: 40, y: 534, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "spi-sck", channel: "SPI1"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "spi-sck", channel: "SPI1"}, {type: "i2c-sda", channel: "I2C1"}, {type: pwm}] }
   - { index: 15, label: "GP11", gpio: 11, x: 40, y: 572, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "spi-tx", channel: "SPI1"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "spi-tx", channel: "SPI1"}, {type: "i2c-scl", channel: "I2C1"}, {type: pwm}] }
   - { index: 16, label: "GP12", gpio: 12, x: 40, y: 610, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "uart-tx", channel: "UART0"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "uart-tx", channel: "UART0"}, {type: "spi-rx", channel: "SPI1"}, {type: "i2c-sda", channel: "I2C0"}, {type: pwm}] }
   - { index: 17, label: "GP13", gpio: 13, x: 40, y: 648, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "uart-rx", channel: "UART0"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "uart-rx", channel: "UART0"}, {type: "spi-cs", channel: "SPI1"}, {type: "i2c-scl", channel: "I2C0"}, {type: pwm}] }
   - { index: 18, label: "GND",  gpio: null, x: 40, y: 686, side: left, kind: ground }
   - { index: 19, label: "GP14", gpio: 14, x: 40, y: 724, side: left, kind: digital,
-      functions: [{type: gpio}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "spi-sck", channel: "SPI1"}, {type: "i2c-sda", channel: "I2C1"}, {type: pwm}] }
   - { index: 20, label: "GP15", gpio: 15, x: 40, y: 762, side: left, kind: digital,
-      functions: [{type: gpio}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "spi-tx", channel: "SPI1"}, {type: "i2c-scl", channel: "I2C1"}, {type: pwm}] }
   - { index: 21, label: "VBUS", gpio: null, x: 360, y: 40,  side: right, kind: power }
   - { index: 22, label: "VSYS", gpio: null, x: 360, y: 78,  side: right, kind: power }
   - { index: 23, label: "GND",  gpio: null, x: 360, y: 116, side: right, kind: ground }

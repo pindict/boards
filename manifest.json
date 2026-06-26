@@ -1,62 +1,62 @@
 {
   "version": "v1.3.0",
-  "generated_at": "2026-06-25T07:02:04Z",
+  "generated_at": "2026-06-26T08:25:14Z",
   "boards": [
     {
       "file": "boards/arduino-mega-2560.yaml",
-      "sha1": "f1c798e5d42a97ea3018b433a90db43ee1bcbf52"
+      "sha1": "ed29b0521e9daebf8c881fbfa2cdd7b98d113f15"
     },
     {
       "file": "boards/arduino-nano.yaml",
-      "sha1": "b0393231681c696b4f0c276c942efbd6d01ad0fc"
+      "sha1": "f19c0e9008a983feb25297c7dc4d42f3dfcced80"
     },
     {
       "file": "boards/arduino-uno-r3.yaml",
-      "sha1": "90bbd1500d7594cd83588cd55884434b758bf1ed"
+      "sha1": "7bf953166813ff863c78143b853f8acbf7b482b9"
     },
     {
       "file": "boards/esp32-c3-devkitm-1.yaml",
-      "sha1": "db9a761aab808344eb94aa2cba2428897329b7ff"
+      "sha1": "820e3ef6126c4090d6267e856987a088ae78eb26"
     },
     {
       "file": "boards/esp32-devkitc-v4.yaml",
-      "sha1": "5fb13fff66b0cecbabc2e1888ee2d4f5fde94034"
+      "sha1": "f721878f7018c8d8dd2efbe63fa7e263e0a25317"
     },
     {
       "file": "boards/esp32-s3-devkitc-1.yaml",
-      "sha1": "5ea4e27543c8a0497f99da93ce81b343b5da2c06"
+      "sha1": "553355d440ba8c7b4139df99e2ef9c98e9fcf109"
     },
     {
       "file": "boards/esp8266-nodemcu-v3.yaml",
-      "sha1": "8e4f29f2200c6d2b0b8b2499b2f11ff4d34ae505"
+      "sha1": "17b094dda11c1faab6ea8edb78d3119b9c6cd623"
     },
     {
       "file": "boards/microbit-v2.yaml",
-      "sha1": "d82e992867e42ada1bd6fc77c5bcce4d77d32ed2"
+      "sha1": "8a3f5a175cadd471ddc571e5425e75e20b20d70c"
     },
     {
       "file": "boards/raspberry-pi-4b.yaml",
-      "sha1": "57570d8b64caf230c7c951820c9e59f3e62f4de0"
+      "sha1": "b5be181b47f245add21d32cb73bb495235df0706"
     },
     {
       "file": "boards/raspberry-pi-pico-w.yaml",
-      "sha1": "00a4e64bf6ae6f036ec09287d0dbb10412be9379"
+      "sha1": "973b09c7aed55893791c008370f3bf4f8668e6aa"
     },
     {
       "file": "boards/raspberry-pi-pico.yaml",
-      "sha1": "4dc7e71ab1a6df5e1821091c0dbc711822ac3cb0"
+      "sha1": "ec96e2b26c464887abd0438528fc690a01fdba5a"
     },
     {
       "file": "boards/raspberry-pi-zero-2-w.yaml",
-      "sha1": "00162d117e0357b7f739e811a259fb18ab5453a0"
+      "sha1": "d38cd7dea3e58cc2732fa7f631545b7cec2c18b7"
     },
     {
       "file": "boards/seeed-xiao-esp32c3.yaml",
-      "sha1": "f0f8a9c4ccbbbbad6318c3b9f746c9d2f084da5b"
+      "sha1": "1ab0659f6b7a3a26a8cebc105d59b6e7f1e7654f"
     },
     {
       "file": "boards/stm32-blue-pill.yaml",
-      "sha1": "30149116188faf1d9a198d95239b53e1779fc9a4"
+      "sha1": "71652f882b2d0fa0564954c90df03dd17c0e9aee"
     }
   ],
   "sensors": [

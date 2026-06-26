@@ -35,32 +35,32 @@ pins:
   - { index: 5,  label: "D2",    gpio: 2,  x: 40, y: 192, side: left, kind: digital,
       functions: [{type: gpio}, {type: "ext-int", channel: "INT0"}] }
   - { index: 6,  label: "D3",    gpio: 3,  x: 40, y: 230, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "ext-int", channel: "INT1"}, {type: pwm}] }
+      functions: [{type: gpio}, {type: "ext-int", channel: "INT1"}, {type: pwm, channel: "OC2B"}] }
   - { index: 7,  label: "D4",    gpio: 4,  x: 40, y: 268, side: left, kind: digital,
       functions: [{type: gpio}] }
   - { index: 8,  label: "D5",    gpio: 5,  x: 40, y: 306, side: left, kind: digital,
-      functions: [{type: gpio}, {type: pwm}] }
+      functions: [{type: gpio}, {type: pwm, channel: "OC0B"}] }
   - { index: 9,  label: "D6",    gpio: 6,  x: 40, y: 344, side: left, kind: digital,
-      functions: [{type: gpio}, {type: pwm}] }
+      functions: [{type: gpio}, {type: pwm, channel: "OC0A"}] }
   - { index: 10, label: "D7",    gpio: 7,  x: 40, y: 382, side: left, kind: digital,
       functions: [{type: gpio}] }
   - { index: 11, label: "D8",    gpio: 8,  x: 40, y: 420, side: left, kind: digital,
       functions: [{type: gpio}] }
   - { index: 12, label: "D9",    gpio: 9,  x: 40, y: 458, side: left, kind: digital,
-      functions: [{type: gpio}, {type: pwm}] }
+      functions: [{type: gpio}, {type: pwm, channel: "OC1A"}] }
   - { index: 13, label: "D10",   gpio: 10, x: 40, y: 496, side: left, kind: digital,
-      functions: [{type: gpio}, {type: pwm}, {type: "spi-cs", channel: "SPI"}] }
+      functions: [{type: gpio}, {type: pwm, channel: "OC1B"}, {type: "spi-cs", channel: "SPI"}] }
   - { index: 14, label: "D11",   gpio: 11, x: 40, y: 534, side: left, kind: digital,
-      functions: [{type: gpio}, {type: pwm}, {type: "spi-mosi", channel: "SPI"}] }
+      functions: [{type: gpio}, {type: pwm, channel: "OC2A"}, {type: "spi-tx", channel: "SPI"}] }
   - { index: 15, label: "D12",   gpio: 12, x: 40, y: 572, side: left, kind: digital,
-      functions: [{type: gpio}, {type: "spi-miso", channel: "SPI"}] }
+      functions: [{type: gpio}, {type: "spi-rx", channel: "SPI"}] }
   # Right header (15 pins)
   - { index: 16, label: "D13",   gpio: 13, x: 360, y: 40,  side: right, kind: digital,
       functions: [{type: gpio}, {type: "spi-sck", channel: "SPI"}],
       warnings: ["LED_BUILTIN"] }
   - { index: 17, label: "3V3",   gpio: null, x: 360, y: 78,  side: right, kind: power,
       warnings: ["最大 50mA"] }
-  - { index: 18, label: "AREF",  gpio: null, x: 360, y: 116, side: right, kind: analog }
+  - { index: 18, label: "AREF",  gpio: null, x: 360, y: 116, side: right, kind: power }
   - { index: 19, label: "A0",    gpio: 14, x: 360, y: 154, side: right, kind: analog,
       functions: [{type: gpio}, {type: adc, channel: "ADC0"}] }
   - { index: 20, label: "A1",    gpio: 15, x: 360, y: 192, side: right, kind: analog,

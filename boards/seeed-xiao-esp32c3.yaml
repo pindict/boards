@@ -3,7 +3,7 @@ id: seeed-xiao-esp32c3
 name: Seeed XIAO ESP32-C3
 aliases: [XIAO C3, Seeeduino XIAO ESP32C3]
 manufacturer: Seeed Studio
-family: esp32
+family: esp32c3
 mcu:
   chip: ESP32-C3 (FN4)
   core: RISC-V single-core
@@ -23,13 +23,15 @@ notes: |
   外部アンテナコネクタ装備。
 pins:
   - { index: 1,  label: "D0/A0",  gpio: 2,  x: 40, y: 40,  side: left, kind: analog,
-      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH2"}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH2"}, {type: strap}],
+      warnings: ["ストラッピングピン (ブート時HIGH)"] }
   - { index: 2,  label: "D1/A1",  gpio: 3,  x: 40, y: 78,  side: left, kind: analog,
       functions: [{type: gpio}, {type: adc, channel: "ADC1_CH3"}] }
   - { index: 3,  label: "D2/A2",  gpio: 4,  x: 40, y: 116, side: left, kind: analog,
       functions: [{type: gpio}, {type: adc, channel: "ADC1_CH4"}] }
   - { index: 4,  label: "D3/A3",  gpio: 5,  x: 40, y: 154, side: left, kind: analog,
-      functions: [{type: gpio}, {type: adc, channel: "ADC1_CH5"}] }
+      functions: [{type: gpio}, {type: adc, channel: "ADC2_CH0"}],
+      warnings: ["ADC2 はWi-Fi動作中は不安定"] }
   - { index: 5,  label: "D4/SDA", gpio: 6,  x: 40, y: 192, side: left, kind: digital,
       functions: [{type: gpio}, {type: "i2c-sda"}] }
   - { index: 6,  label: "D5/SCL", gpio: 7,  x: 40, y: 230, side: left, kind: digital,
@@ -41,10 +43,10 @@ pins:
   - { index: 9,  label: "D8/SCK", gpio: 8,  x: 360, y: 230, side: right, kind: digital,
       functions: [{type: gpio}, {type: "spi-sck"}, {type: strap}] }
   - { index: 10, label: "D9/MISO",gpio: 9,  x: 360, y: 192, side: right, kind: digital,
-      functions: [{type: gpio}, {type: "spi-miso"}, {type: strap}],
+      functions: [{type: gpio}, {type: "spi-rx"}, {type: strap}],
       warnings: ["BOOTボタンと共有"] }
   - { index: 11, label: "D10/MOSI",gpio: 10, x: 360, y: 154, side: right, kind: digital,
-      functions: [{type: gpio}, {type: "spi-mosi"}] }
+      functions: [{type: gpio}, {type: "spi-tx"}] }
   - { index: 12, label: "3V3",    gpio: null, x: 360, y: 116, side: right, kind: power }
   - { index: 13, label: "GND",    gpio: null, x: 360, y: 78,  side: right, kind: ground }
   - { index: 14, label: "5V",     gpio: null, x: 360, y: 40,  side: right, kind: power }
